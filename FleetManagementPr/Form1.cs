@@ -16,5 +16,10 @@ namespace FleetManagementPr
         {
             InitializeComponent();
         }
+
+        private void buttonToAdd_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Veochle added succeauioshdcui");
+        }
     }
 }

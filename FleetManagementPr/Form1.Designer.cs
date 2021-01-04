@@ -29,13 +29,34 @@ namespace FleetManagementPr
         /// </summary>
         private void InitializeComponent()
         {
-            this.components = new System.ComponentModel.Container();
+            this.buttonToAdd = new System.Windows.Forms.Button();
+            this.SuspendLayout();
+            // 
+            // buttonToAdd
+            // 
+            this.buttonToAdd.Location = new System.Drawing.Point(73, 106);
+            this.buttonToAdd.Name = "buttonToAdd";
+            this.buttonToAdd.Size = new System.Drawing.Size(75, 23);
+            this.buttonToAdd.TabIndex = 0;
+            this.buttonToAdd.Text = "Add";
+            this.buttonToAdd.UseVisualStyleBackColor = true;
+            this.buttonToAdd.Click += new System.EventHandler(this.buttonToAdd_Click);
+            // 
+            // Form1
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.buttonToAdd);
+            this.Name = "Form1";
             this.Text = "Form1";
+            this.ResumeLayout(false);
+
         }
 
         #endregion
+
+        private System.Windows.Forms.Button buttonToAdd;
     }
 }
 

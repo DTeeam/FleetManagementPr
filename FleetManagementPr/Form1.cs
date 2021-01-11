@@ -31,9 +31,20 @@ namespace FleetManagementPr
             }
         }
 
-        private void buttonToAdd_Click(object sender, EventArgs e)
+        private void buttonToAddPlace_Click(object sender, EventArgs e)
         {
-            //MessageBox.Show("Veichle added succeauioshdcui");
+            string name = textBoxPlaceName.Text;
+            string postalNum = textBoxPlaceNum.Text;
+
+            if (postalNum.Length == 4)
+            {
+                Places addPlace = new Places(name, postalNum);
+                db.addPlace(addPlace);
+                //MessageBox.Show(name + postalNum);
+            }
+            else
+                MessageBox.Show("Postal number must not be longer than 4 numbers.");
+            
         }
 
         private void buttonToPrintPlaces_Click(object sender, EventArgs e)
@@ -64,13 +75,8 @@ namespace FleetManagementPr
             }
             //int finalName = Convert.ToInt32(name);
             //double finalNum = Convert.ToDouble(postalNum);
-            textBox1.Text = name;
-            textBox2.Text = postalNum;
-        }
-
-        private void buttonToAddPlace_Click(object sender, EventArgs e)
-        {
-
+            textBoxPlaceName.Text = name;
+            textBoxPlaceNum.Text = postalNum;
         }
     }
 }

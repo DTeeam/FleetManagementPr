@@ -34,7 +34,7 @@ namespace Database
                     while (reader.Read())
                     {
                         //int id = reader.GetInt32(0);
-                        string name = reader.GetValue(0).ToString();
+                        string name = reader.GetString(0);
                         string postNum = reader.GetString(1);
 
                         Places reading = new Places(name, postNum);
@@ -43,6 +43,17 @@ namespace Database
                     }
                 }
                 return displayPlaces;
+            }
+        }
+
+        public void addPlace(Places add)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addPlace('" + add.name + "', '" + add.postalNum + "');", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
             }
         }
     }

@@ -34,13 +34,13 @@ namespace FleetManagementPr
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonToAddPlace = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxPlaceNum = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.buttonToAddPlace = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -54,7 +54,6 @@ namespace FleetManagementPr
             this.buttonToAdd.TabIndex = 0;
             this.buttonToAdd.Text = "Add";
             this.buttonToAdd.UseVisualStyleBackColor = true;
-            this.buttonToAdd.Click += new System.EventHandler(this.buttonToAdd_Click);
             // 
             // tabControl1
             // 
@@ -92,9 +91,9 @@ namespace FleetManagementPr
             // 
             this.tabPage3.Controls.Add(this.buttonToAddPlace);
             this.tabPage3.Controls.Add(this.label2);
-            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.textBoxPlaceNum);
             this.tabPage3.Controls.Add(this.label1);
-            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.textBoxPlaceName);
             this.tabPage3.Controls.Add(this.listBox1);
             this.tabPage3.Controls.Add(this.buttonToPrintPlaces);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
@@ -103,6 +102,48 @@ namespace FleetManagementPr
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Places";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonToAddPlace
+            // 
+            this.buttonToAddPlace.Location = new System.Drawing.Point(120, 97);
+            this.buttonToAddPlace.Name = "buttonToAddPlace";
+            this.buttonToAddPlace.Size = new System.Drawing.Size(75, 23);
+            this.buttonToAddPlace.TabIndex = 11;
+            this.buttonToAddPlace.Text = "Add place";
+            this.buttonToAddPlace.UseVisualStyleBackColor = true;
+            this.buttonToAddPlace.Click += new System.EventHandler(this.buttonToAddPlace_Click);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(7, 56);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(77, 13);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Postal number:";
+            // 
+            // textBoxPlaceNum
+            // 
+            this.textBoxPlaceNum.Location = new System.Drawing.Point(95, 53);
+            this.textBoxPlaceNum.Name = "textBoxPlaceNum";
+            this.textBoxPlaceNum.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlaceNum.TabIndex = 9;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(7, 18);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Place name:";
+            // 
+            // textBoxPlaceName
+            // 
+            this.textBoxPlaceName.Location = new System.Drawing.Point(95, 15);
+            this.textBoxPlaceName.Name = "textBoxPlaceName";
+            this.textBoxPlaceName.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPlaceName.TabIndex = 7;
             // 
             // listBox1
             // 
@@ -122,48 +163,6 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.Text = "Update";
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(95, 15);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 7;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 18);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Place name:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(7, 56);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(77, 13);
-            this.label2.TabIndex = 10;
-            this.label2.Text = "Postal number:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(95, 53);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 9;
-            // 
-            // buttonToAddPlace
-            // 
-            this.buttonToAddPlace.Location = new System.Drawing.Point(120, 97);
-            this.buttonToAddPlace.Name = "buttonToAddPlace";
-            this.buttonToAddPlace.Size = new System.Drawing.Size(75, 23);
-            this.buttonToAddPlace.TabIndex = 11;
-            this.buttonToAddPlace.Text = "Add place";
-            this.buttonToAddPlace.UseVisualStyleBackColor = true;
-            this.buttonToAddPlace.Click += new System.EventHandler(this.buttonToAddPlace_Click);
             // 
             // Form1
             // 
@@ -192,9 +191,9 @@ namespace FleetManagementPr
         private System.Windows.Forms.Button buttonToPrintPlaces;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBoxPlaceNum;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxPlaceName;
         private System.Windows.Forms.Button buttonToAddPlace;
     }
 }

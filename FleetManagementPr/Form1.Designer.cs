@@ -157,6 +157,7 @@ namespace FleetManagementPr
             this.buttonToAddVeichle.TabIndex = 18;
             this.buttonToAddVeichle.Text = "Add veichle";
             this.buttonToAddVeichle.UseVisualStyleBackColor = true;
+            this.buttonToAddVeichle.Click += new System.EventHandler(this.buttonToAddVeichle_Click);
             // 
             // label3
             // 

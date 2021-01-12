@@ -14,7 +14,8 @@ namespace FleetManagementPr
     public partial class Form1 : Form
     {
         private CompanyDB db;
-        string id = "";
+        string placeID = "";
+        string veichleID = "";
         public Form1()
         {
             InitializeComponent();
@@ -23,12 +24,21 @@ namespace FleetManagementPr
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Places> listToDisplay = db.readPlaces();
+            List<Places> listToDisplayPlaces = db.readPlaces();
             listBox1.Items.Clear();
 
-            foreach (Places place in listToDisplay)
+            foreach (Places place in listToDisplayPlaces)
             {
                 listBox1.Items.Add(place.id + " | " + place.name + " | "  + place.postalNum);
+            }
+
+            List<Veichles> listToDisplayVeichles = db.readVeichles();
+            listBoxForVeichles.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayVeichles)
+            {
+                //MessageBox.Show(veichle.type);
+                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
             }
         }
 
@@ -71,7 +81,7 @@ namespace FleetManagementPr
 
             foreach (String s in array)
             {
-                id = array[0];
+                placeID = array[0];
                 name = array[1];
                 postalNum = array[2];
             }
@@ -80,18 +90,6 @@ namespace FleetManagementPr
             textBoxPlaceName.Text = name;
             textBoxPlaceNum.Text = postalNum;
             
-        }
-
-        private void buttonToPrintVeichles_Click(object sender, EventArgs e)
-        {
-            List<Veichles> listToDisplay = db.readVeichles();
-            listBoxForVeichles.Items.Clear();
-
-            foreach (Veichles veichle in listToDisplay)
-            {
-                //MessageBox.Show(veichle.type);
-                listBoxForVeichles.Items.Add(veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
-            }
         }
 
         private void buttonToUpdatePlace_Click(object sender, EventArgs e)
@@ -114,10 +112,53 @@ namespace FleetManagementPr
                 postalNum = textBoxPlaceNum.Text;
 
 
-                Places place = new Places(Convert.ToInt32(id), name, postalNum);
+                Places place = new Places(Convert.ToInt32(placeID), name, postalNum);
                 db.updatePlace(place);
             }
             
+        }
+
+        private void buttonToPrintVeichles_Click(object sender, EventArgs e)
+        {
+            List<Veichles> listToDisplay = db.readVeichles();
+            listBoxForVeichles.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplay)
+            {
+                //MessageBox.Show(veichle.type);
+                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
+            }
+        }
+
+        private void listBoxForVeichles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var test = listBoxForVeichles.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string name = "";
+            string postalNum = "";
+
+            foreach (String s in array)
+            {
+                veichleID = array[0];
+                name = array[1];
+                postalNum = array[2];
+            }
+            //int finalName = Convert.ToInt32(name);
+            //double finalNum = Convert.ToDouble(postalNum);
+            textBoxPlaceName.Text = name;
+            textBoxPlaceNum.Text = postalNum;
+
+        }
+
+        private void buttonToAddVeichle_Click(object sender, EventArgs e)
+        {
+            
+
+           
+
         }
     }
 }

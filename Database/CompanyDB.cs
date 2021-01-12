@@ -84,12 +84,13 @@ namespace Database
                     while (reader.Read())
                     {
                         //int id = reader.GetInt32(0);
-                        string type = reader.GetString(0);
-                        int year = reader.GetInt32(1);
-                        string make = reader.GetString(2);
-                        string model = reader.GetString(3);
+                        int id = reader.GetInt32(0);
+                        string type = reader.GetString(1);
+                        int year = reader.GetInt32(2);
+                        string make = reader.GetString(3);
+                        string model = reader.GetString(4);
 
-                        Veichles reading = new Veichles(type, year, make, model);
+                        Veichles reading = new Veichles(id, type, year, make, model);
 
                         displayPlaces.Add(reading);
                     }

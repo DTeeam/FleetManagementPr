@@ -38,8 +38,13 @@ namespace FleetManagementPr
             foreach (Veichles veichle in listToDisplayVeichles)
             {
                 //MessageBox.Show(veichle.type);
-                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
+                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " +
+                    veichle.model + " | " + veichle.yearOfMake + " | " + veichle.place);
             }
+
+            List<Places> listToDisplayMake;
+            comboBoxModel.Items.Clear();
+
         }
 
         private void buttonToAddPlace_Click(object sender, EventArgs e)
@@ -126,7 +131,8 @@ namespace FleetManagementPr
             foreach (Veichles veichle in listToDisplay)
             {
                 //MessageBox.Show(veichle.type);
-                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
+                listBoxForVeichles.Items.Add(veichle.id + " | " + veichle.type + " | " + veichle.make + " | " +
+                    veichle.model + " | " + veichle.yearOfMake + " | " + veichle.place);
             }
         }
 
@@ -156,9 +162,6 @@ namespace FleetManagementPr
         private void buttonToAddVeichle_Click(object sender, EventArgs e)
         {
             
-
-           
-
         }
     }
 }

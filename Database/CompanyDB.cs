@@ -73,7 +73,7 @@ namespace Database
 
         public List<Veichles> readVeichles()
         {
-            List<Veichles> displayPlaces = new List<Veichles>();
+            List<Veichles> displayVeichles = new List<Veichles>();
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
                 using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printVeichles()", conn))
@@ -87,15 +87,40 @@ namespace Database
                         int id = reader.GetInt32(0);
                         string type = reader.GetString(1);
                         int year = reader.GetInt32(2);
-                        string make = reader.GetString(3);
-                        string model = reader.GetString(4);
+                        string model = reader.GetString(3);
+                        string make = reader.GetString(4);
+                        string place = reader.GetString(5);
 
-                        Veichles reading = new Veichles(id, type, year, make, model);
+                        Veichles reading = new Veichles(id, type, year, make, model, place);
 
-                        displayPlaces.Add(reading);
+                        displayVeichles.Add(reading);
                     }
                 }
-                return displayPlaces;
+                return displayVeichles;
+            }
+        }
+
+        public List<Veichles> readMakes()
+        {
+            List<Veichles> displayMakes = new List<Veichles>();
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printModels()", conn))
+                {
+                    // com.CommandText = "SELECT printPlaces()";
+                    NpgsqlDataReader reader = com.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //int id = reader.GetInt32(0);
+                        string make = reader.GetString(0);
+
+                        Veichles reading = new Veichles(make);
+
+                        displayMakes.Add(reading);
+                    }
+                }
+                return displayMakes;
             }
         }
     }

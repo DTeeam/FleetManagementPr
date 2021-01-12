@@ -42,8 +42,14 @@ namespace FleetManagementPr
                     veichle.model + " | " + veichle.yearOfMake + " | " + veichle.place);
             }
 
-            List<Places> listToDisplayMake;
+            List<Veichles> listToDisplayMake = db.readMakes();
+            List<Veichles> listToDisplayModel = db.readModels();
+
             comboBoxModel.Items.Clear();
+            comboBoxMake.Items.Clear();
+
+            printListComboModel(listToDisplayMake);
+            printListComboMake(listToDisplayModel);
 
         }
 
@@ -162,6 +168,27 @@ namespace FleetManagementPr
         private void buttonToAddVeichle_Click(object sender, EventArgs e)
         {
             
+        }
+
+
+
+
+
+
+
+        private void printListComboModel(List<Veichles> listToDisplay)
+        {
+            foreach (Veichles veichle in listToDisplay)
+            {
+                comboBoxModel.Items.Add(veichle.model);
+            }
+        }
+        private void printListComboMake(List<Veichles> listToDisplay)
+        {
+            foreach (Veichles veichle in listToDisplay)
+            {
+                comboBoxMake.Items.Add(veichle.model);
+            }
         }
     }
 }

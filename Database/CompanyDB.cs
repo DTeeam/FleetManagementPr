@@ -105,7 +105,7 @@ namespace Database
             List<Veichles> displayMakes = new List<Veichles>();
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printModels()", conn))
+                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printMakes()", conn))
                 {
                     // com.CommandText = "SELECT printPlaces()";
                     NpgsqlDataReader reader = com.ExecuteReader();
@@ -121,6 +121,30 @@ namespace Database
                     }
                 }
                 return displayMakes;
+            }
+        }
+
+        public List<Veichles> readModels()
+        {
+            List<Veichles> displayModels = new List<Veichles>();
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printModels()", conn))
+                {
+                    // com.CommandText = "SELECT printPlaces()";
+                    NpgsqlDataReader reader = com.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //int id = reader.GetInt32(0);
+                        string model = reader.GetString(0);
+
+                        Veichles reading = new Veichles(model);
+
+                        displayModels.Add(reading);
+                    }
+                }
+                return displayModels;
             }
         }
     }

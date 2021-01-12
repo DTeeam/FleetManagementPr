@@ -103,9 +103,24 @@ namespace FleetManagementPr
             // numericUpDownYearOfMake
             // 
             this.numericUpDownYearOfMake.Location = new System.Drawing.Point(93, 93);
+            this.numericUpDownYearOfMake.Maximum = new decimal(new int[] {
+            2030,
+            0,
+            0,
+            0});
+            this.numericUpDownYearOfMake.Minimum = new decimal(new int[] {
+            1900,
+            0,
+            0,
+            0});
             this.numericUpDownYearOfMake.Name = "numericUpDownYearOfMake";
             this.numericUpDownYearOfMake.Size = new System.Drawing.Size(100, 20);
             this.numericUpDownYearOfMake.TabIndex = 25;
+            this.numericUpDownYearOfMake.Value = new decimal(new int[] {
+            2000,
+            0,
+            0,
+            0});
             // 
             // label5
             // 

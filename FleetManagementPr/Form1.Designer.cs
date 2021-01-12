@@ -52,6 +52,7 @@ namespace FleetManagementPr
             this.textBoxType = new System.Windows.Forms.TextBox();
             this.comboBoxModel = new System.Windows.Forms.ComboBox();
             this.comboBoxMake = new System.Windows.Forms.ComboBox();
+            this.listBoxVeichlePlaces = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -81,6 +82,7 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.listBoxVeichlePlaces);
             this.tabPage2.Controls.Add(this.comboBoxMake);
             this.tabPage2.Controls.Add(this.comboBoxModel);
             this.tabPage2.Controls.Add(this.textBoxType);
@@ -297,6 +299,15 @@ namespace FleetManagementPr
             this.comboBoxMake.Size = new System.Drawing.Size(100, 21);
             this.comboBoxMake.TabIndex = 30;
             // 
+            // listBoxVeichlePlaces
+            // 
+            this.listBoxVeichlePlaces.FormattingEnabled = true;
+            this.listBoxVeichlePlaces.Location = new System.Drawing.Point(10, 220);
+            this.listBoxVeichlePlaces.Name = "listBoxVeichlePlaces";
+            this.listBoxVeichlePlaces.Size = new System.Drawing.Size(317, 186);
+            this.listBoxVeichlePlaces.TabIndex = 31;
+            this.listBoxVeichlePlaces.SelectedIndexChanged += new System.EventHandler(this.listBoxVeichlePlaces_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -340,6 +351,7 @@ namespace FleetManagementPr
         private System.Windows.Forms.TextBox textBoxType;
         private System.Windows.Forms.ComboBox comboBoxMake;
         private System.Windows.Forms.ComboBox comboBoxModel;
+        private System.Windows.Forms.ListBox listBoxVeichlePlaces;
     }
 }
 

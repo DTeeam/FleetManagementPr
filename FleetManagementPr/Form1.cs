@@ -26,10 +26,16 @@ namespace FleetManagementPr
         {
             List<Places> listToDisplayPlaces = db.readPlaces();
             listBox1.Items.Clear();
+            listBoxVeichlePlaces.Items.Clear();
 
             foreach (Places place in listToDisplayPlaces)
             {
-                listBox1.Items.Add(place.id + " | " + place.name + " | "  + place.postalNum);
+                listBox1.Items.Add(place.id + " | " + place.name + " | " + place.postalNum);
+            }
+
+            foreach (Places place in listToDisplayPlaces)
+            {
+                listBoxVeichlePlaces.Items.Add(place.name);
             }
 
             List<Veichles> listToDisplayVeichles = db.readVeichles();
@@ -149,19 +155,18 @@ namespace FleetManagementPr
             string splitString = test.ToString();
             string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
 
-            string name = "";
-            string postalNum = "";
+            string model = "";
+            string make = "";
 
             foreach (String s in array)
             {
                 veichleID = array[0];
-                name = array[1];
-                postalNum = array[2];
+                model = array[2];
+                make = array[3];
             }
-            //int finalName = Convert.ToInt32(name);
-            //double finalNum = Convert.ToDouble(postalNum);
-            textBoxPlaceName.Text = name;
-            textBoxPlaceNum.Text = postalNum;
+            //TODO
+            comboBoxModel.SelectedItem = model;
+            comboBoxMake.Text = make;
 
         }
 
@@ -169,6 +174,31 @@ namespace FleetManagementPr
         {
             
         }
+
+        private void listBoxveichlePlaces_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var test = listBoxVeichlePlaces.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string name = "";
+            string postalNum = "";
+
+            foreach (String s in array)
+            {
+                placeID = array[0];
+                name = array[1];
+                postalNum = array[2];
+            }
+            //int finalName = Convert.ToInt32(name);
+            //double finalNum = Convert.ToDouble(postalNum);
+            textBoxPlaceName.Text = name;
+            textBoxPlaceNum.Text = postalNum;
+        }
+
+
+
 
 
 
@@ -190,5 +220,7 @@ namespace FleetManagementPr
                 comboBoxMake.Items.Add(veichle.model);
             }
         }
+
+        
     }
 }

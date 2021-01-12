@@ -10,6 +10,7 @@ namespace Database
     {
         private NpgsqlConnection conn;
         private List<Places> displayPlaces;
+        private List<Veichles> displayVeichles;
 
         public CompanyDB()
         {
@@ -18,6 +19,7 @@ namespace Database
             conn.Open();
 
             displayPlaces = new List<Places>();
+            displayVeichles = new List<Veichles>();
         }
 
 
@@ -54,6 +56,44 @@ namespace Database
 
                 com.ExecuteNonQuery();
                 transaction.Commit();
+            }
+        }
+
+        public void UpdatePlace(Places add)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addPlace('" + add.name + "', '" + add.postalNum + "');", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
+        public List<Veichles> readVeichles()
+        {
+            List<Veichles> displayPlaces = new List<Veichles>();
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printVeichles()", conn))
+                {
+                    // com.CommandText = "SELECT printPlaces()";
+                    NpgsqlDataReader reader = com.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        //int id = reader.GetInt32(0);
+                        string type = reader.GetString(0);
+                        int year = reader.GetInt32(1);
+                        string make = reader.GetString(2);
+                        string model = reader.GetString(3);
+
+                        Veichles reading = new Veichles(type, year, make, model);
+
+                        displayPlaces.Add(reading);
+                    }
+                }
+                return displayPlaces;
             }
         }
     }

@@ -78,5 +78,17 @@ namespace FleetManagementPr
             textBoxPlaceName.Text = name;
             textBoxPlaceNum.Text = postalNum;
         }
+
+        private void buttonToPrintVeichles_Click(object sender, EventArgs e)
+        {
+            List<Veichles> listToDisplay = db.readVeichles();
+            listBoxForVeichles.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplay)
+            {
+                //MessageBox.Show(veichle.type);
+                listBoxForVeichles.Items.Add(veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
+            }
+        }
     }
 }

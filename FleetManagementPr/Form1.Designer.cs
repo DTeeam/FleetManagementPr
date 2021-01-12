@@ -29,10 +29,20 @@ namespace FleetManagementPr
         /// </summary>
         private void InitializeComponent()
         {
-            this.buttonToAdd = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numericUpDownYearOfMake = new System.Windows.Forms.NumericUpDown();
+            this.comboBoxType = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.comboBoxModel = new System.Windows.Forms.ComboBox();
+            this.comboBoxMake = new System.Windows.Forms.ComboBox();
+            this.buttonToAddVeichle = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.listBoxForVeichles = new System.Windows.Forms.ListBox();
+            this.buttonToPrintVeichles = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.buttonToAddPlace = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -41,19 +51,12 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // buttonToAdd
-            // 
-            this.buttonToAdd.Location = new System.Drawing.Point(56, 146);
-            this.buttonToAdd.Name = "buttonToAdd";
-            this.buttonToAdd.Size = new System.Drawing.Size(75, 23);
-            this.buttonToAdd.TabIndex = 0;
-            this.buttonToAdd.Text = "Add";
-            this.buttonToAdd.UseVisualStyleBackColor = true;
             // 
             // tabControl1
             // 
@@ -68,7 +71,6 @@ namespace FleetManagementPr
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.buttonToAdd);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -79,16 +81,122 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numericUpDownYearOfMake);
+            this.tabPage2.Controls.Add(this.comboBoxType);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.label6);
+            this.tabPage2.Controls.Add(this.comboBoxModel);
+            this.tabPage2.Controls.Add(this.comboBoxMake);
+            this.tabPage2.Controls.Add(this.buttonToAddVeichle);
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.listBoxForVeichles);
+            this.tabPage2.Controls.Add(this.buttonToPrintVeichles);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(793, 426);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "tabPage2";
+            this.tabPage2.Text = "Veichles";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDownYearOfMake
+            // 
+            this.numericUpDownYearOfMake.Location = new System.Drawing.Point(93, 93);
+            this.numericUpDownYearOfMake.Name = "numericUpDownYearOfMake";
+            this.numericUpDownYearOfMake.Size = new System.Drawing.Size(100, 20);
+            this.numericUpDownYearOfMake.TabIndex = 25;
+            // 
+            // comboBoxType
+            // 
+            this.comboBoxType.FormattingEnabled = true;
+            this.comboBoxType.Location = new System.Drawing.Point(93, 133);
+            this.comboBoxType.Name = "comboBoxType";
+            this.comboBoxType.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxType.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(5, 141);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 13);
+            this.label5.TabIndex = 22;
+            this.label5.Text = "Type:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 100);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(73, 13);
+            this.label6.TabIndex = 21;
+            this.label6.Text = "Year of make:";
+            // 
+            // comboBoxModel
+            // 
+            this.comboBoxModel.FormattingEnabled = true;
+            this.comboBoxModel.Location = new System.Drawing.Point(93, 53);
+            this.comboBoxModel.Name = "comboBoxModel";
+            this.comboBoxModel.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxModel.TabIndex = 20;
+            // 
+            // comboBoxMake
+            // 
+            this.comboBoxMake.FormattingEnabled = true;
+            this.comboBoxMake.Location = new System.Drawing.Point(93, 9);
+            this.comboBoxMake.Name = "comboBoxMake";
+            this.comboBoxMake.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxMake.TabIndex = 19;
+            // 
+            // buttonToAddVeichle
+            // 
+            this.buttonToAddVeichle.Location = new System.Drawing.Point(118, 220);
+            this.buttonToAddVeichle.Name = "buttonToAddVeichle";
+            this.buttonToAddVeichle.Size = new System.Drawing.Size(75, 23);
+            this.buttonToAddVeichle.TabIndex = 18;
+            this.buttonToAddVeichle.Text = "Add veichle";
+            this.buttonToAddVeichle.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(5, 56);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(76, 13);
+            this.label3.TabIndex = 17;
+            this.label3.Text = "Veichle model:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(5, 18);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(74, 13);
+            this.label4.TabIndex = 15;
+            this.label4.Text = "Veichle make:";
+            // 
+            // listBoxForVeichles
+            // 
+            this.listBoxForVeichles.FormattingEnabled = true;
+            this.listBoxForVeichles.Location = new System.Drawing.Point(544, 3);
+            this.listBoxForVeichles.Name = "listBoxForVeichles";
+            this.listBoxForVeichles.Size = new System.Drawing.Size(244, 420);
+            this.listBoxForVeichles.TabIndex = 13;
+            // 
+            // buttonToPrintVeichles
+            // 
+            this.buttonToPrintVeichles.Location = new System.Drawing.Point(463, 393);
+            this.buttonToPrintVeichles.Name = "buttonToPrintVeichles";
+            this.buttonToPrintVeichles.Size = new System.Drawing.Size(75, 23);
+            this.buttonToPrintVeichles.TabIndex = 12;
+            this.buttonToPrintVeichles.Text = "Update";
+            this.buttonToPrintVeichles.UseVisualStyleBackColor = true;
+            this.buttonToPrintVeichles.Click += new System.EventHandler(this.buttonToPrintVeichles_Click);
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.buttonToAddPlace);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.textBoxPlaceNum);
@@ -164,6 +272,15 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(120, 136);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Update place";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -174,7 +291,9 @@ namespace FleetManagementPr
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
@@ -182,8 +301,6 @@ namespace FleetManagementPr
         }
 
         #endregion
-
-        private System.Windows.Forms.Button buttonToAdd;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
@@ -195,6 +312,18 @@ namespace FleetManagementPr
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBoxPlaceName;
         private System.Windows.Forms.Button buttonToAddPlace;
+        private System.Windows.Forms.Button buttonToAddVeichle;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ListBox listBoxForVeichles;
+        private System.Windows.Forms.Button buttonToPrintVeichles;
+        private System.Windows.Forms.NumericUpDown numericUpDownYearOfMake;
+        private System.Windows.Forms.ComboBox comboBoxType;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox comboBoxModel;
+        private System.Windows.Forms.ComboBox comboBoxMake;
+        private System.Windows.Forms.Button button1;
     }
 }
 

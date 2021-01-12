@@ -4,11 +4,6 @@ using System.Text;
 
 namespace Database
 {
-    public class Company
-    {
-        
-    }
-
     public class Places
     {
         public string name { get; set; }

@@ -36,10 +36,11 @@ namespace Database
                     while (reader.Read())
                     {
                         //int id = reader.GetInt32(0);
-                        string name = reader.GetString(0);
-                        string postNum = reader.GetString(1);
+                        int id = reader.GetInt32(0);
+                        string name = reader.GetString(1);
+                        string postNum = reader.GetString(2);
 
-                        Places reading = new Places(name, postNum);
+                        Places reading = new Places(id, name, postNum);
 
                         displayPlaces.Add(reading);
                     }
@@ -59,11 +60,11 @@ namespace Database
             }
         }
 
-        public void UpdatePlace(Places add)
+        public void updatePlace(Places update)
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                NpgsqlCommand com = new NpgsqlCommand("SELECT  addPlace('" + add.name + "', '" + add.postalNum + "');", conn);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updatePlace(" + update.id + ", '" + update.name + "', '" + update.postalNum + "');", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();

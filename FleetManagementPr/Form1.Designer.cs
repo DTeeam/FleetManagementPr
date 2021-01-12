@@ -44,6 +44,7 @@ namespace FleetManagementPr
             this.listBoxForVeichles = new System.Windows.Forms.ListBox();
             this.buttonToPrintVeichles = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonToUpdatePlace = new System.Windows.Forms.Button();
             this.buttonToAddPlace = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.textBoxPlaceNum = new System.Windows.Forms.TextBox();
@@ -51,7 +52,6 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -196,7 +196,7 @@ namespace FleetManagementPr
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button1);
+            this.tabPage3.Controls.Add(this.buttonToUpdatePlace);
             this.tabPage3.Controls.Add(this.buttonToAddPlace);
             this.tabPage3.Controls.Add(this.label2);
             this.tabPage3.Controls.Add(this.textBoxPlaceNum);
@@ -210,6 +210,16 @@ namespace FleetManagementPr
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Places";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // buttonToUpdatePlace
+            // 
+            this.buttonToUpdatePlace.Location = new System.Drawing.Point(120, 136);
+            this.buttonToUpdatePlace.Name = "buttonToUpdatePlace";
+            this.buttonToUpdatePlace.Size = new System.Drawing.Size(100, 23);
+            this.buttonToUpdatePlace.TabIndex = 12;
+            this.buttonToUpdatePlace.Text = "Update place";
+            this.buttonToUpdatePlace.UseVisualStyleBackColor = true;
+            this.buttonToUpdatePlace.Click += new System.EventHandler(this.buttonToUpdatePlace_Click);
             // 
             // buttonToAddPlace
             // 
@@ -272,15 +282,6 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(120, 136);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 12;
-            this.button1.Text = "Update place";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -323,7 +324,7 @@ namespace FleetManagementPr
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox comboBoxModel;
         private System.Windows.Forms.ComboBox comboBoxMake;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonToUpdatePlace;
     }
 }
 

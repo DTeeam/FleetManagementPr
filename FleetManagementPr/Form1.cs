@@ -14,6 +14,7 @@ namespace FleetManagementPr
     public partial class Form1 : Form
     {
         private CompanyDB db;
+        string id = "";
         public Form1()
         {
             InitializeComponent();
@@ -27,7 +28,7 @@ namespace FleetManagementPr
 
             foreach (Places place in listToDisplay)
             {
-                listBox1.Items.Add(place.name + " | " + place.postalNum);
+                listBox1.Items.Add(place.id + " | " + place.name + " | "  + place.postalNum);
             }
         }
 
@@ -54,7 +55,7 @@ namespace FleetManagementPr
 
             foreach(Places place in listToDisplay)
             {
-                listBox1.Items.Add(place.name + " | " + place.postalNum);
+                listBox1.Items.Add(place.id + " | " + place.name + " | " + place.postalNum);
             }
         }
 
@@ -63,20 +64,22 @@ namespace FleetManagementPr
             var test = listBox1.SelectedItem;
 
             string splitString = test.ToString();
-            string[] array = splitString.Split('|');
+            string[] array = splitString.Split(new string[] { " | "}, StringSplitOptions.None);
 
             string name = "";
             string postalNum = "";
 
             foreach (String s in array)
             {
-                name = array[0];
-                postalNum = array[1];
+                id = array[0];
+                name = array[1];
+                postalNum = array[2];
             }
             //int finalName = Convert.ToInt32(name);
             //double finalNum = Convert.ToDouble(postalNum);
             textBoxPlaceName.Text = name;
             textBoxPlaceNum.Text = postalNum;
+            
         }
 
         private void buttonToPrintVeichles_Click(object sender, EventArgs e)
@@ -89,6 +92,32 @@ namespace FleetManagementPr
                 //MessageBox.Show(veichle.type);
                 listBoxForVeichles.Items.Add(veichle.type + " | " + veichle.make + " | " + veichle.model + " | " + veichle.yearOfMake);
             }
+        }
+
+        private void buttonToUpdatePlace_Click(object sender, EventArgs e)
+        {
+            
+
+            if (listBox1.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a place first.");
+            }
+
+            else
+            {
+                string name;
+                string postalNum;
+                //string id = "";
+
+
+                name = textBoxPlaceName.Text;
+                postalNum = textBoxPlaceNum.Text;
+
+
+                Places place = new Places(Convert.ToInt32(id), name, postalNum);
+                db.updatePlace(place);
+            }
+            
         }
     }
 }

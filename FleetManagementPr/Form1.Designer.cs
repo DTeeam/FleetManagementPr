@@ -32,6 +32,12 @@ namespace FleetManagementPr
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.textBoxVeichlePlace = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.listBoxVeichlePlaces = new System.Windows.Forms.ListBox();
+            this.comboBoxModel = new System.Windows.Forms.ComboBox();
+            this.comboBoxMake = new System.Windows.Forms.ComboBox();
+            this.textBoxType = new System.Windows.Forms.TextBox();
             this.numericUpDownYearOfMake = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -49,10 +55,6 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.textBoxType = new System.Windows.Forms.TextBox();
-            this.comboBoxModel = new System.Windows.Forms.ComboBox();
-            this.comboBoxMake = new System.Windows.Forms.ComboBox();
-            this.listBoxVeichlePlaces = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -82,9 +84,11 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.textBoxVeichlePlace);
+            this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.listBoxVeichlePlaces);
-            this.tabPage2.Controls.Add(this.comboBoxMake);
             this.tabPage2.Controls.Add(this.comboBoxModel);
+            this.tabPage2.Controls.Add(this.comboBoxMake);
             this.tabPage2.Controls.Add(this.textBoxType);
             this.tabPage2.Controls.Add(this.numericUpDownYearOfMake);
             this.tabPage2.Controls.Add(this.label5);
@@ -101,6 +105,54 @@ namespace FleetManagementPr
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Veichles";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // textBoxVeichlePlace
+            // 
+            this.textBoxVeichlePlace.Location = new System.Drawing.Point(93, 170);
+            this.textBoxVeichlePlace.Name = "textBoxVeichlePlace";
+            this.textBoxVeichlePlace.Size = new System.Drawing.Size(100, 20);
+            this.textBoxVeichlePlace.TabIndex = 33;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(5, 177);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(37, 13);
+            this.label7.TabIndex = 32;
+            this.label7.Text = "Place:";
+            // 
+            // listBoxVeichlePlaces
+            // 
+            this.listBoxVeichlePlaces.FormattingEnabled = true;
+            this.listBoxVeichlePlaces.Location = new System.Drawing.Point(10, 259);
+            this.listBoxVeichlePlaces.Name = "listBoxVeichlePlaces";
+            this.listBoxVeichlePlaces.Size = new System.Drawing.Size(317, 147);
+            this.listBoxVeichlePlaces.TabIndex = 31;
+            this.listBoxVeichlePlaces.SelectedIndexChanged += new System.EventHandler(this.listBoxveichlePlaces_SelectedIndexChanged);
+            // 
+            // comboBoxModel
+            // 
+            this.comboBoxModel.FormattingEnabled = true;
+            this.comboBoxModel.Location = new System.Drawing.Point(93, 60);
+            this.comboBoxModel.Name = "comboBoxModel";
+            this.comboBoxModel.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxModel.TabIndex = 30;
+            // 
+            // comboBoxMake
+            // 
+            this.comboBoxMake.FormattingEnabled = true;
+            this.comboBoxMake.Location = new System.Drawing.Point(93, 18);
+            this.comboBoxMake.Name = "comboBoxMake";
+            this.comboBoxMake.Size = new System.Drawing.Size(100, 21);
+            this.comboBoxMake.TabIndex = 29;
+            // 
+            // textBoxType
+            // 
+            this.textBoxType.Location = new System.Drawing.Point(93, 134);
+            this.textBoxType.Name = "textBoxType";
+            this.textBoxType.Size = new System.Drawing.Size(100, 20);
+            this.textBoxType.TabIndex = 28;
             // 
             // numericUpDownYearOfMake
             // 
@@ -144,7 +196,7 @@ namespace FleetManagementPr
             // 
             // buttonToAddVeichle
             // 
-            this.buttonToAddVeichle.Location = new System.Drawing.Point(118, 178);
+            this.buttonToAddVeichle.Location = new System.Drawing.Point(351, 246);
             this.buttonToAddVeichle.Name = "buttonToAddVeichle";
             this.buttonToAddVeichle.Size = new System.Drawing.Size(75, 23);
             this.buttonToAddVeichle.TabIndex = 18;
@@ -155,7 +207,7 @@ namespace FleetManagementPr
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 18);
+            this.label3.Location = new System.Drawing.Point(11, 60);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(76, 13);
             this.label3.TabIndex = 17;
@@ -164,7 +216,7 @@ namespace FleetManagementPr
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 60);
+            this.label4.Location = new System.Drawing.Point(6, 18);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 15;
@@ -276,38 +328,6 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
-            // textBoxType
-            // 
-            this.textBoxType.Location = new System.Drawing.Point(93, 134);
-            this.textBoxType.Name = "textBoxType";
-            this.textBoxType.Size = new System.Drawing.Size(100, 20);
-            this.textBoxType.TabIndex = 28;
-            // 
-            // comboBoxModel
-            // 
-            this.comboBoxModel.FormattingEnabled = true;
-            this.comboBoxModel.Location = new System.Drawing.Point(93, 18);
-            this.comboBoxModel.Name = "comboBoxModel";
-            this.comboBoxModel.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxModel.TabIndex = 29;
-            // 
-            // comboBoxMake
-            // 
-            this.comboBoxMake.FormattingEnabled = true;
-            this.comboBoxMake.Location = new System.Drawing.Point(93, 60);
-            this.comboBoxMake.Name = "comboBoxMake";
-            this.comboBoxMake.Size = new System.Drawing.Size(100, 21);
-            this.comboBoxMake.TabIndex = 30;
-            // 
-            // listBoxVeichlePlaces
-            // 
-            this.listBoxVeichlePlaces.FormattingEnabled = true;
-            this.listBoxVeichlePlaces.Location = new System.Drawing.Point(10, 220);
-            this.listBoxVeichlePlaces.Name = "listBoxVeichlePlaces";
-            this.listBoxVeichlePlaces.Size = new System.Drawing.Size(317, 186);
-            this.listBoxVeichlePlaces.TabIndex = 31;
-            this.listBoxVeichlePlaces.SelectedIndexChanged += new System.EventHandler(this.listBoxVeichlePlaces_SelectedIndexChanged);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -349,9 +369,11 @@ namespace FleetManagementPr
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonToUpdatePlace;
         private System.Windows.Forms.TextBox textBoxType;
-        private System.Windows.Forms.ComboBox comboBoxMake;
         private System.Windows.Forms.ComboBox comboBoxModel;
+        private System.Windows.Forms.ComboBox comboBoxMake;
         private System.Windows.Forms.ListBox listBoxVeichlePlaces;
+        private System.Windows.Forms.TextBox textBoxVeichlePlace;
+        private System.Windows.Forms.Label label7;
     }
 }
 

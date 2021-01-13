@@ -16,6 +16,7 @@ namespace FleetManagementPr
         private CompanyDB db;
         string placeID = "";
         string veichleID = "";
+        int veichlePlaceID;
         public Form1()
         {
             InitializeComponent();
@@ -51,8 +52,8 @@ namespace FleetManagementPr
             List<Veichles> listToDisplayMake = db.readMakes();
             List<Veichles> listToDisplayModel = db.readModels();
 
-            comboBoxModel.Items.Clear();
             comboBoxMake.Items.Clear();
+            comboBoxModel.Items.Clear();
 
             printListComboModel(listToDisplayMake);
             printListComboMake(listToDisplayModel);
@@ -165,59 +166,41 @@ namespace FleetManagementPr
                 make = array[3];
             }
             //TODO
-            comboBoxModel.SelectedItem = model;
-            comboBoxMake.Text = make;
+            comboBoxMake.SelectedItem = model;
+            comboBoxModel.Text = make;
 
         }
 
         private void buttonToAddVeichle_Click(object sender, EventArgs e)
         {
+            int modelID = comboBoxModel.SelectedIndex + 1;
+            string type = textBoxType.Text;
+            int year = Convert.ToInt32(numericUpDownYearOfMake.Value);
             
+            Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
+            db.addVeichle(addVeichle);
+
         }
 
         private void listBoxveichlePlaces_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var test = listBoxVeichlePlaces.SelectedItem;
-
-            string splitString = test.ToString();
-            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
-
-            string name = "";
-            string postalNum = "";
-
-            foreach (String s in array)
-            {
-                placeID = array[0];
-                name = array[1];
-                postalNum = array[2];
-            }
-            //int finalName = Convert.ToInt32(name);
-            //double finalNum = Convert.ToDouble(postalNum);
-            textBoxPlaceName.Text = name;
-            textBoxPlaceNum.Text = postalNum;
+            textBoxVeichlePlace.Text = listBoxVeichlePlaces.SelectedItem.ToString();
+            veichlePlaceID = listBoxVeichlePlaces.SelectedIndex + 1;
         }
-
-
-
-
-
-
-
-
 
 
         private void printListComboModel(List<Veichles> listToDisplay)
         {
             foreach (Veichles veichle in listToDisplay)
             {
-                comboBoxModel.Items.Add(veichle.model);
+                comboBoxMake.Items.Add(veichle.model);
             }
         }
         private void printListComboMake(List<Veichles> listToDisplay)
         {
             foreach (Veichles veichle in listToDisplay)
             {
-                comboBoxMake.Items.Add(veichle.model);
+                comboBoxModel.Items.Add(veichle.model);
             }
         }
 

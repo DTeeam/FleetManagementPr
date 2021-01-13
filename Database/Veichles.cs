@@ -6,12 +6,15 @@ namespace Database
 {
     public class Veichles
     {
+
         public int id { get; set; }
         public string type { get; set; }
         public int yearOfMake { get; set; }
         public string make { get; set; }
         public string model { get; set; }
         public string place { get; set; }
+        public int modelID { get; set; }
+        public int placeID { get; set; }
 
         public Veichles(int id, string type, int year, string make, string model, string place)
         {
@@ -26,6 +29,14 @@ namespace Database
         public Veichles(string model)
         {
             this.model = model;
+        }
+
+        public Veichles(string type, int year, int modelID, int placeID)
+        {
+            this.type = type;
+            this.yearOfMake = year;
+            this.modelID = modelID;
+            this.placeID = placeID;
         }
     }
 }

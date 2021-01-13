@@ -64,7 +64,8 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                NpgsqlCommand com = new NpgsqlCommand("SELECT  updatePlace(" + update.id + ", '" + update.name + "', '" + update.postalNum + "');", conn);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updatePlace(" + update.id + ", '" + update.name +
+                    "', '" + update.postalNum + "');", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();
@@ -97,6 +98,19 @@ namespace Database
                     }
                 }
                 return displayVeichles;
+            }
+        }
+
+        public void addVeichle(Veichles add)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                //TODO
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addVeichles('" + add.type + "', " + add.yearOfMake
+                    + ", " + add.modelID + ", " + add.placeID + ");", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
             }
         }
 

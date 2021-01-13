@@ -55,6 +55,7 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -84,6 +85,7 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.textBoxVeichlePlace);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.listBoxVeichlePlaces);
@@ -229,6 +231,7 @@ namespace FleetManagementPr
             this.listBoxForVeichles.Name = "listBoxForVeichles";
             this.listBoxForVeichles.Size = new System.Drawing.Size(323, 420);
             this.listBoxForVeichles.TabIndex = 13;
+            this.listBoxForVeichles.SelectedIndexChanged += new System.EventHandler(this.listBoxForVeichles_SelectedIndexChanged);
             // 
             // buttonToPrintVeichles
             // 
@@ -328,6 +331,16 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(237, 141);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Add veichle";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -374,6 +387,7 @@ namespace FleetManagementPr
         private System.Windows.Forms.ListBox listBoxVeichlePlaces;
         private System.Windows.Forms.TextBox textBoxVeichlePlace;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -158,16 +158,22 @@ namespace FleetManagementPr
 
             string model = "";
             string make = "";
+            string type = "";
+            string year = "";
 
             foreach (String s in array)
             {
                 veichleID = array[0];
-                model = array[2];
-                make = array[3];
+                type = array[1];
+                make = array[2];
+                model = array[3];
+                year = array[4];
             }
             //TODO
-            comboBoxMake.SelectedItem = model;
-            comboBoxModel.Text = make;
+            textBoxType.Text = type;
+            comboBoxMake.Text = make;
+            comboBoxModel.Text = model;
+            numericUpDownYearOfMake.Value = Convert.ToInt32(year);
 
         }
 
@@ -176,9 +182,9 @@ namespace FleetManagementPr
             int modelID = comboBoxModel.SelectedIndex + 1;
             string type = textBoxType.Text;
             int year = Convert.ToInt32(numericUpDownYearOfMake.Value);
-            
+            MessageBox.Show(modelID.ToString());
             Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
-            db.addVeichle(addVeichle);
+            //db.addVeichle(addVeichle);
 
         }
 
@@ -204,6 +210,9 @@ namespace FleetManagementPr
             }
         }
 
-        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
+        }
     }
 }

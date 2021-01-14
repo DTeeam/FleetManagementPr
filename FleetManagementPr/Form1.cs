@@ -136,6 +136,13 @@ namespace FleetManagementPr
             
         }
 
+        private void buttonToDeletePlace_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(placeID);
+            Places removePlace = new Places(id);
+            db.deletePlace(removePlace);
+        }
+
         private void buttonToPrintVeichles_Click(object sender, EventArgs e)
         {
             List<Veichles> listToDisplay = db.readVeichles();
@@ -193,7 +200,6 @@ namespace FleetManagementPr
             int id = Convert.ToInt32(veichleID);
             Veichles removeVeichle = new Veichles(id);
             db.deleteVeichle(removeVeichle);
-            //MessageBox.Show(veichleID.ToString());
         }
 
         private void listBoxveichlePlaces_SelectedIndexChanged(object sender, EventArgs e)
@@ -222,5 +228,7 @@ namespace FleetManagementPr
         {
 
         }
+
+        
     }
 }

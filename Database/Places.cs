@@ -26,6 +26,11 @@ namespace Database
             this.name = name;
             this.postalNum = postalNum;
         }
+
+        public Places(int id)
+        {
+            this.id = id;
+        }
     }
 
 }

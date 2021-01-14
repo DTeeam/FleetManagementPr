@@ -59,6 +59,18 @@ namespace Database
             }
         }
 
+        public void deletePlace(Places remove)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                //TODO
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deletePlaces(" + remove.id + ")", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
         public void updatePlace(Places update)
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())

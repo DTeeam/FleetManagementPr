@@ -57,6 +57,7 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
+            this.buttonToDeletePlace = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -267,6 +268,7 @@ namespace FleetManagementPr
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.buttonToDeletePlace);
             this.tabPage3.Controls.Add(this.buttonToUpdatePlace);
             this.tabPage3.Controls.Add(this.buttonToAddPlace);
             this.tabPage3.Controls.Add(this.label2);
@@ -353,6 +355,16 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
+            // buttonToDeletePlace
+            // 
+            this.buttonToDeletePlace.Location = new System.Drawing.Point(120, 174);
+            this.buttonToDeletePlace.Name = "buttonToDeletePlace";
+            this.buttonToDeletePlace.Size = new System.Drawing.Size(88, 23);
+            this.buttonToDeletePlace.TabIndex = 36;
+            this.buttonToDeletePlace.Text = "Delete place";
+            this.buttonToDeletePlace.UseVisualStyleBackColor = true;
+            this.buttonToDeletePlace.Click += new System.EventHandler(this.buttonToDeletePlace_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -401,6 +413,7 @@ namespace FleetManagementPr
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button buttonUpdateVeichle;
         private System.Windows.Forms.Button buttonDeleteVeichle;
+        private System.Windows.Forms.Button buttonToDeletePlace;
     }
 }
 

@@ -60,6 +60,13 @@ namespace FleetManagementPr
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
             this.listBoxModel = new System.Windows.Forms.ListBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxMake = new System.Windows.Forms.TextBox();
+            this.textBoxModel = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.buttonToAddMake = new System.Windows.Forms.Button();
+            this.buttonToUpdateMake = new System.Windows.Forms.Button();
+            this.buttonToDeleteMake = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -80,6 +87,13 @@ namespace FleetManagementPr
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.buttonToDeleteMake);
+            this.tabPage1.Controls.Add(this.buttonToUpdateMake);
+            this.tabPage1.Controls.Add(this.buttonToAddMake);
+            this.tabPage1.Controls.Add(this.textBoxModel);
+            this.tabPage1.Controls.Add(this.label9);
+            this.tabPage1.Controls.Add(this.textBoxMake);
+            this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.listBoxModel);
             this.tabPage1.Controls.Add(this.listBoxMake);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -97,6 +111,7 @@ namespace FleetManagementPr
             this.listBoxMake.Name = "listBoxMake";
             this.listBoxMake.Size = new System.Drawing.Size(201, 147);
             this.listBoxMake.TabIndex = 0;
+            this.listBoxMake.SelectedIndexChanged += new System.EventHandler(this.listBoxMake_SelectedIndexChanged);
             // 
             // tabPage2
             // 
@@ -386,6 +401,65 @@ namespace FleetManagementPr
             this.listBoxModel.Size = new System.Drawing.Size(201, 147);
             this.listBoxModel.TabIndex = 2;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(398, 13);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(37, 13);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Make:";
+            // 
+            // textBoxMake
+            // 
+            this.textBoxMake.Location = new System.Drawing.Point(454, 10);
+            this.textBoxMake.Name = "textBoxMake";
+            this.textBoxMake.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMake.TabIndex = 4;
+            // 
+            // textBoxModel
+            // 
+            this.textBoxModel.Location = new System.Drawing.Point(454, 240);
+            this.textBoxModel.Name = "textBoxModel";
+            this.textBoxModel.Size = new System.Drawing.Size(100, 20);
+            this.textBoxModel.TabIndex = 6;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(398, 240);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(37, 13);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Make:";
+            // 
+            // buttonToAddMake
+            // 
+            this.buttonToAddMake.Location = new System.Drawing.Point(454, 36);
+            this.buttonToAddMake.Name = "buttonToAddMake";
+            this.buttonToAddMake.Size = new System.Drawing.Size(100, 23);
+            this.buttonToAddMake.TabIndex = 7;
+            this.buttonToAddMake.Text = "Add make";
+            this.buttonToAddMake.UseVisualStyleBackColor = true;
+            // 
+            // buttonToUpdateMake
+            // 
+            this.buttonToUpdateMake.Location = new System.Drawing.Point(454, 65);
+            this.buttonToUpdateMake.Name = "buttonToUpdateMake";
+            this.buttonToUpdateMake.Size = new System.Drawing.Size(100, 23);
+            this.buttonToUpdateMake.TabIndex = 8;
+            this.buttonToUpdateMake.Text = "Update make";
+            this.buttonToUpdateMake.UseVisualStyleBackColor = true;
+            // 
+            // buttonToDeleteMake
+            // 
+            this.buttonToDeleteMake.Location = new System.Drawing.Point(454, 94);
+            this.buttonToDeleteMake.Name = "buttonToDeleteMake";
+            this.buttonToDeleteMake.Size = new System.Drawing.Size(100, 23);
+            this.buttonToDeleteMake.TabIndex = 9;
+            this.buttonToDeleteMake.Text = "Delete make";
+            this.buttonToDeleteMake.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -397,6 +471,7 @@ namespace FleetManagementPr
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).EndInit();
@@ -438,6 +513,13 @@ namespace FleetManagementPr
         private System.Windows.Forms.Button buttonToDeletePlace;
         private System.Windows.Forms.ListBox listBoxMake;
         private System.Windows.Forms.ListBox listBoxModel;
+        private System.Windows.Forms.TextBox textBoxModel;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox textBoxMake;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button buttonToDeleteMake;
+        private System.Windows.Forms.Button buttonToUpdateMake;
+        private System.Windows.Forms.Button buttonToAddMake;
     }
 }
 

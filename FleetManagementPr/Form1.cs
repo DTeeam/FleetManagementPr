@@ -59,8 +59,17 @@ namespace FleetManagementPr
             printListComboMake(listToDisplayModel);
             
             listBoxMake.Items.Clear();
+            listBoxModel.Items.Clear();
 
-            
+            foreach (Veichles veichle in listToDisplayMake)
+            {
+                listBoxMake.Items.Add(veichle.model);
+            }
+
+            foreach (Veichles veichle in listToDisplayModel)
+            {
+                listBoxModel.Items.Add(veichle.model);
+            }
 
         }
 
@@ -149,8 +158,8 @@ namespace FleetManagementPr
 
         private void listBoxForVeichles_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (listBox1.SelectedIndex == -1)
-              //  return;
+            if (listBoxForVeichles.SelectedItem == null)
+                return;
 
             var test = listBoxForVeichles.SelectedItem;
 
@@ -258,6 +267,15 @@ namespace FleetManagementPr
             {
                 comboBoxModel.Items.Add(veichle.model);
             }
+        }
+
+        private void listBoxMake_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxMake.SelectedItem == null)
+                return;
+
+            textBoxMake.Text = listBoxMake.SelectedItem.ToString();
+            MessageBox.Show(listBoxMake.SelectedIndex.ToString());
         }
     }
 }

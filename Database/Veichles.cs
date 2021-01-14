@@ -30,6 +30,7 @@ namespace Database
         {
             this.model = model;
         }
+       
 
         public Veichles(string type, int year, int modelID, int placeID)
         {

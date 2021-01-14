@@ -38,5 +38,10 @@ namespace Database
             this.modelID = modelID;
             this.placeID = placeID;
         }
+
+        public Veichles(int id)
+        {
+            this.id = id;
+        }
     }
 }

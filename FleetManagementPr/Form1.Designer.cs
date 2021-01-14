@@ -32,6 +32,8 @@ namespace FleetManagementPr
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonDeleteVeichle = new System.Windows.Forms.Button();
+            this.buttonUpdateVeichle = new System.Windows.Forms.Button();
             this.textBoxVeichlePlace = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.listBoxVeichlePlaces = new System.Windows.Forms.ListBox();
@@ -55,7 +57,6 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
@@ -85,7 +86,8 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.button1);
+            this.tabPage2.Controls.Add(this.buttonDeleteVeichle);
+            this.tabPage2.Controls.Add(this.buttonUpdateVeichle);
             this.tabPage2.Controls.Add(this.textBoxVeichlePlace);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.listBoxVeichlePlaces);
@@ -107,6 +109,26 @@ namespace FleetManagementPr
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Veichles";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonDeleteVeichle
+            // 
+            this.buttonDeleteVeichle.Location = new System.Drawing.Point(352, 202);
+            this.buttonDeleteVeichle.Name = "buttonDeleteVeichle";
+            this.buttonDeleteVeichle.Size = new System.Drawing.Size(88, 23);
+            this.buttonDeleteVeichle.TabIndex = 35;
+            this.buttonDeleteVeichle.Text = "Delete veichle";
+            this.buttonDeleteVeichle.UseVisualStyleBackColor = true;
+            this.buttonDeleteVeichle.Click += new System.EventHandler(this.buttonDeleteVeichle_Click);
+            // 
+            // buttonUpdateVeichle
+            // 
+            this.buttonUpdateVeichle.Location = new System.Drawing.Point(105, 196);
+            this.buttonUpdateVeichle.Name = "buttonUpdateVeichle";
+            this.buttonUpdateVeichle.Size = new System.Drawing.Size(88, 23);
+            this.buttonUpdateVeichle.TabIndex = 34;
+            this.buttonUpdateVeichle.Text = "Update veichle";
+            this.buttonUpdateVeichle.UseVisualStyleBackColor = true;
+            this.buttonUpdateVeichle.Click += new System.EventHandler(this.buttonUpdateVeichle_Click);
             // 
             // textBoxVeichlePlace
             // 
@@ -198,9 +220,9 @@ namespace FleetManagementPr
             // 
             // buttonToAddVeichle
             // 
-            this.buttonToAddVeichle.Location = new System.Drawing.Point(351, 246);
+            this.buttonToAddVeichle.Location = new System.Drawing.Point(105, 225);
             this.buttonToAddVeichle.Name = "buttonToAddVeichle";
-            this.buttonToAddVeichle.Size = new System.Drawing.Size(75, 23);
+            this.buttonToAddVeichle.Size = new System.Drawing.Size(88, 23);
             this.buttonToAddVeichle.TabIndex = 18;
             this.buttonToAddVeichle.Text = "Add veichle";
             this.buttonToAddVeichle.UseVisualStyleBackColor = true;
@@ -331,16 +353,6 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(237, 141);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 34;
-            this.button1.Text = "Add veichle";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -387,7 +399,8 @@ namespace FleetManagementPr
         private System.Windows.Forms.ListBox listBoxVeichlePlaces;
         private System.Windows.Forms.TextBox textBoxVeichlePlace;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonUpdateVeichle;
+        private System.Windows.Forms.Button buttonDeleteVeichle;
     }
 }
 

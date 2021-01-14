@@ -182,10 +182,18 @@ namespace FleetManagementPr
             int modelID = comboBoxModel.SelectedIndex + 1;
             string type = textBoxType.Text;
             int year = Convert.ToInt32(numericUpDownYearOfMake.Value);
-            MessageBox.Show(modelID.ToString());
+            
             Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
-            //db.addVeichle(addVeichle);
+            db.addVeichle(addVeichle);
 
+        }
+
+        private void buttonDeleteVeichle_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(veichleID);
+            Veichles removeVeichle = new Veichles(id);
+            db.deleteVeichle(removeVeichle);
+            //MessageBox.Show(veichleID.ToString());
         }
 
         private void listBoxveichlePlaces_SelectedIndexChanged(object sender, EventArgs e)
@@ -210,9 +218,9 @@ namespace FleetManagementPr
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonUpdateVeichle_Click(object sender, EventArgs e)
         {
-            
+
         }
     }
 }

@@ -35,7 +35,6 @@ namespace Database
 
                     while (reader.Read())
                     {
-                        //int id = reader.GetInt32(0);
                         int id = reader.GetInt32(0);
                         string name = reader.GetString(1);
                         string postNum = reader.GetString(2);
@@ -79,12 +78,10 @@ namespace Database
             {
                 using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printVeichles()", conn))
                 {
-                    // com.CommandText = "SELECT printPlaces()";
                     NpgsqlDataReader reader = com.ExecuteReader();
 
                     while (reader.Read())
                     {
-                        //int id = reader.GetInt32(0);
                         int id = reader.GetInt32(0);
                         string type = reader.GetString(1);
                         int year = reader.GetInt32(2);
@@ -105,9 +102,20 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                //TODO
                 NpgsqlCommand com = new NpgsqlCommand("SELECT  addVeichles('" + add.type + "', " + add.yearOfMake
                     + ", " + add.modelID + ", " + add.placeID + ");", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
+        public void deleteVeichle(Veichles remove)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                //TODO
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deleteVeichles(" + remove.id + ")", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();

@@ -31,6 +31,7 @@ namespace FleetManagementPr
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.listBoxMake = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.buttonDeleteVeichle = new System.Windows.Forms.Button();
             this.buttonUpdateVeichle = new System.Windows.Forms.Button();
@@ -49,6 +50,7 @@ namespace FleetManagementPr
             this.listBoxForVeichles = new System.Windows.Forms.ListBox();
             this.buttonToPrintVeichles = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.buttonToDeletePlace = new System.Windows.Forms.Button();
             this.buttonToUpdatePlace = new System.Windows.Forms.Button();
             this.buttonToAddPlace = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
@@ -57,8 +59,9 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.buttonToDeletePlace = new System.Windows.Forms.Button();
+            this.listBoxModel = new System.Windows.Forms.ListBox();
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
             this.tabPage3.SuspendLayout();
@@ -77,6 +80,8 @@ namespace FleetManagementPr
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.listBoxModel);
+            this.tabPage1.Controls.Add(this.listBoxMake);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -84,6 +89,14 @@ namespace FleetManagementPr
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Make and model";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // listBoxMake
+            // 
+            this.listBoxMake.FormattingEnabled = true;
+            this.listBoxMake.Location = new System.Drawing.Point(582, 6);
+            this.listBoxMake.Name = "listBoxMake";
+            this.listBoxMake.Size = new System.Drawing.Size(201, 147);
+            this.listBoxMake.TabIndex = 0;
             // 
             // tabPage2
             // 
@@ -284,6 +297,16 @@ namespace FleetManagementPr
             this.tabPage3.Text = "Places";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // buttonToDeletePlace
+            // 
+            this.buttonToDeletePlace.Location = new System.Drawing.Point(120, 174);
+            this.buttonToDeletePlace.Name = "buttonToDeletePlace";
+            this.buttonToDeletePlace.Size = new System.Drawing.Size(88, 23);
+            this.buttonToDeletePlace.TabIndex = 36;
+            this.buttonToDeletePlace.Text = "Delete place";
+            this.buttonToDeletePlace.UseVisualStyleBackColor = true;
+            this.buttonToDeletePlace.Click += new System.EventHandler(this.buttonToDeletePlace_Click);
+            // 
             // buttonToUpdatePlace
             // 
             this.buttonToUpdatePlace.Location = new System.Drawing.Point(120, 136);
@@ -355,15 +378,13 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
             // 
-            // buttonToDeletePlace
+            // listBoxModel
             // 
-            this.buttonToDeletePlace.Location = new System.Drawing.Point(120, 174);
-            this.buttonToDeletePlace.Name = "buttonToDeletePlace";
-            this.buttonToDeletePlace.Size = new System.Drawing.Size(88, 23);
-            this.buttonToDeletePlace.TabIndex = 36;
-            this.buttonToDeletePlace.Text = "Delete place";
-            this.buttonToDeletePlace.UseVisualStyleBackColor = true;
-            this.buttonToDeletePlace.Click += new System.EventHandler(this.buttonToDeletePlace_Click);
+            this.listBoxModel.FormattingEnabled = true;
+            this.listBoxModel.Location = new System.Drawing.Point(582, 237);
+            this.listBoxModel.Name = "listBoxModel";
+            this.listBoxModel.Size = new System.Drawing.Size(201, 147);
+            this.listBoxModel.TabIndex = 2;
             // 
             // Form1
             // 
@@ -375,6 +396,7 @@ namespace FleetManagementPr
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).EndInit();
@@ -414,6 +436,8 @@ namespace FleetManagementPr
         private System.Windows.Forms.Button buttonUpdateVeichle;
         private System.Windows.Forms.Button buttonDeleteVeichle;
         private System.Windows.Forms.Button buttonToDeletePlace;
+        private System.Windows.Forms.ListBox listBoxMake;
+        private System.Windows.Forms.ListBox listBoxModel;
     }
 }
 

@@ -122,6 +122,18 @@ namespace Database
             }
         }
 
+        public void updateVeichle(Veichles update)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateVeichle(" + update.id + ", '" + update.type +
+                    "', " + update.yearOfMake + ", " + update.modelID + ", " + update.placeID + ");", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
         public void deleteVeichle(Veichles remove)
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())

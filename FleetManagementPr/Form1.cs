@@ -57,6 +57,10 @@ namespace FleetManagementPr
 
             printListComboModel(listToDisplayMake);
             printListComboMake(listToDisplayModel);
+            
+            listBoxMake.Items.Clear();
+
+            
 
         }
 
@@ -143,6 +147,40 @@ namespace FleetManagementPr
             db.deletePlace(removePlace);
         }
 
+        private void listBoxForVeichles_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //if (listBox1.SelectedIndex == -1)
+              //  return;
+
+            var test = listBoxForVeichles.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string model = "";
+            string make = "";
+            string type = "";
+            string year = "";
+            string place = "";
+
+            foreach (String s in array)
+            {
+                veichleID = array[0];
+                type = array[1];
+                make = array[2];
+                model = array[3];
+                year = array[4];
+                place = array[5];
+            }
+
+            textBoxType.Text = type;
+            comboBoxMake.Text = make;
+            comboBoxModel.Text = model;
+            numericUpDownYearOfMake.Value = Convert.ToInt32(year);
+            textBoxVeichlePlace.Text = place;
+
+        }
+
         private void buttonToPrintVeichles_Click(object sender, EventArgs e)
         {
             List<Veichles> listToDisplay = db.readVeichles();
@@ -156,34 +194,6 @@ namespace FleetManagementPr
             }
         }
 
-        private void listBoxForVeichles_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            var test = listBoxForVeichles.SelectedItem;
-
-            string splitString = test.ToString();
-            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
-
-            string model = "";
-            string make = "";
-            string type = "";
-            string year = "";
-
-            foreach (String s in array)
-            {
-                veichleID = array[0];
-                type = array[1];
-                make = array[2];
-                model = array[3];
-                year = array[4];
-            }
-            //TODO
-            textBoxType.Text = type;
-            comboBoxMake.Text = make;
-            comboBoxModel.Text = model;
-            numericUpDownYearOfMake.Value = Convert.ToInt32(year);
-
-        }
-
         private void buttonToAddVeichle_Click(object sender, EventArgs e)
         {
             int modelID = comboBoxModel.SelectedIndex + 1;
@@ -192,7 +202,33 @@ namespace FleetManagementPr
             
             Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
             db.addVeichle(addVeichle);
+            
+        }
 
+        private void buttonUpdateVeichle_Click(object sender, EventArgs e)
+        {
+            string type;
+            int year;
+            int modelID;
+            string place;
+            int placeID = 0;
+
+            type = textBoxType.Text;
+            year = Convert.ToInt32(numericUpDownYearOfMake.Value);
+            modelID = comboBoxModel.SelectedIndex + 1;
+            place = textBoxVeichlePlace.Text;
+            int i = listBoxVeichlePlaces.Items.Count;
+
+            while (i != listBoxVeichlePlaces.SelectedIndex + 1)
+            {
+                listBoxVeichlePlaces.SelectedItem = place;
+
+                i--;
+                placeID = i;
+            }
+            
+            Veichles updateVeichle = new Veichles(Convert.ToInt32(veichleID), type, year, modelID, placeID);
+            db.updateVeichle(updateVeichle);
         }
 
         private void buttonDeleteVeichle_Click(object sender, EventArgs e)
@@ -223,12 +259,5 @@ namespace FleetManagementPr
                 comboBoxModel.Items.Add(veichle.model);
             }
         }
-
-        private void buttonUpdateVeichle_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        
     }
 }

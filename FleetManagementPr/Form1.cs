@@ -311,5 +311,14 @@ namespace FleetManagementPr
             modelID = Convert.ToInt32(id);
         }
 
+        private void buttonToAddMake_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonToUpdateMakeList_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

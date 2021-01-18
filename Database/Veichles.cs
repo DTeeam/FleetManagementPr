@@ -67,5 +67,12 @@ namespace Database
             this.model = model;
             this.makeID = makeID;
         }
+
+        public Veichles(string model, string make, int makeID)
+        {
+            this.model = model;
+            this.make = make;
+            this.makeID = makeID;
+        }
     }
 }

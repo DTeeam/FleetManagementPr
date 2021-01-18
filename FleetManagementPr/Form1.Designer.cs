@@ -122,6 +122,7 @@ namespace FleetManagementPr
             this.buttonToDeleteMake.TabIndex = 9;
             this.buttonToDeleteMake.Text = "Delete make";
             this.buttonToDeleteMake.UseVisualStyleBackColor = true;
+            this.buttonToDeleteMake.Click += new System.EventHandler(this.buttonToDeleteMake_Click);
             // 
             // buttonToUpdateMake
             // 
@@ -134,12 +135,13 @@ namespace FleetManagementPr
             // 
             // buttonToAddMake
             // 
-            this.buttonToAddMake.Location = new System.Drawing.Point(454, 36);
+            this.buttonToAddMake.Location = new System.Drawing.Point(426, 36);
             this.buttonToAddMake.Name = "buttonToAddMake";
-            this.buttonToAddMake.Size = new System.Drawing.Size(100, 23);
+            this.buttonToAddMake.Size = new System.Drawing.Size(128, 23);
             this.buttonToAddMake.TabIndex = 7;
-            this.buttonToAddMake.Text = "Add make";
+            this.buttonToAddMake.Text = "Add make and model";
             this.buttonToAddMake.UseVisualStyleBackColor = true;
+            this.buttonToAddMake.Click += new System.EventHandler(this.buttonToAddMake_Click);
             // 
             // textBoxModel
             // 

@@ -224,5 +224,25 @@ namespace Database
                 transaction.Commit();
             }
         }
+        public void addMake(Veichles add)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addMakeModel('" + add.make + "', '" + add.model + "', " + add.makeID + ");", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+        public void deleteMake(Veichles remove)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deleteMake(" + remove.id + ")", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
     }
 }

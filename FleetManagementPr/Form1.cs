@@ -381,7 +381,7 @@ namespace FleetManagementPr
             string len = textBoxMake.Text;
             if (len.Length == 0)
             {
-                MessageBox.Show("You must select a make");
+                MessageBox.Show("You must select a make.");
                 return;
             }
 
@@ -402,6 +402,27 @@ namespace FleetManagementPr
         {
             Veichles deleteModel = new Veichles(modelID);
             db.deleteModel(deleteModel);
+        }
+
+        private void buttonToAddMake_Click(object sender, EventArgs e)
+        {
+            string make = textBoxMake.Text;
+            string model = textBoxModel.Text;
+
+            if(model.Length == 0 || make.Length == 0)
+            {
+                MessageBox.Show("You must enter both a make and a model.");
+                return;
+            }
+
+            Veichles addMake = new Veichles(model, make, makeID);
+            db.addMake(addMake);
+        }
+
+        private void buttonToDeleteMake_Click(object sender, EventArgs e)
+        {
+            Veichles deleteMake = new Veichles(makeID);
+            db.deleteMake(deleteMake);
         }
     }
 }

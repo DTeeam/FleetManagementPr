@@ -386,7 +386,7 @@ namespace FleetManagementPr
         private void buttonToUpdateModel_Click(object sender, EventArgs e)
         {
             string model = textBoxModel.Text;
-            Veichles updateModel = new Veichles(makeID, model);
+            Veichles updateModel = new Veichles(modelID, model);
             db.updateModel(updateModel);
         }
 

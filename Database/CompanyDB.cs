@@ -218,7 +218,7 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateModel(" + update.id + ", '" + update.model + "');", conn);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateModel(" + update.makeID + ", '" + update.model + "');", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();

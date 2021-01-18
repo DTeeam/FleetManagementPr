@@ -491,6 +491,7 @@ namespace FleetManagementPr
             this.buttonToUpdateModelList.TabIndex = 11;
             this.buttonToUpdateModelList.Text = "Update";
             this.buttonToUpdateModelList.UseVisualStyleBackColor = true;
+            this.buttonToUpdateModelList.Click += new System.EventHandler(this.buttonToUpdateModelList_Click);
             // 
             // buttonToDeleteModel
             // 

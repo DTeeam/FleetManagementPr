@@ -65,12 +65,12 @@ namespace FleetManagementPr
 
             foreach (Veichles veichle in listToDisplayMake)
             {
-                listBoxMake.Items.Add(veichle.model);
+                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
             }
 
             foreach (Veichles veichle in listToDisplayModel)
             {
-                listBoxModel.Items.Add(veichle.model);
+                listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
 
         }
@@ -318,7 +318,27 @@ namespace FleetManagementPr
 
         private void buttonToUpdateMakeList_Click(object sender, EventArgs e)
         {
+            List<Veichles> listToDisplayMake = db.readMakes();
+            
+            listBoxMake.Items.Clear();
+            
+            foreach (Veichles veichle in listToDisplayMake)
+            {
+                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
 
+        }
+
+        private void buttonToUpdateModelList_Click(object sender, EventArgs e)
+        {
+            List<Veichles> listToDisplayModel = db.readModels();
+
+            listBoxModel.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayModel)
+            {
+                listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
         }
     }
 }

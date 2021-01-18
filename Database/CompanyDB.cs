@@ -198,7 +198,7 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                NpgsqlCommand com = new NpgsqlCommand("SELECT  addModel('" + add.model + "');", conn);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addModel('" + add.model + "', " + add.makeID + ");", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();

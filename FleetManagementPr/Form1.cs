@@ -378,14 +378,22 @@ namespace FleetManagementPr
 
         private void buttonToAddModel_Click(object sender, EventArgs e)
         {
+            string len = textBoxMake.Text;
+            if (len.Length == 0)
+            {
+                MessageBox.Show("You must select a make");
+                return;
+            }
+
             string model = textBoxModel.Text;
 
-            Veichles addModel = new Veichles(model);
+            Veichles addModel = new Veichles(makeID, model);
             db.addModel(addModel);
         }
         private void buttonToUpdateModel_Click(object sender, EventArgs e)
         {
             string model = textBoxModel.Text;
+
             Veichles updateModel = new Veichles(modelID, model);
             db.updateModel(updateModel);
         }

@@ -274,8 +274,46 @@ namespace FleetManagementPr
             if (listBoxMake.SelectedItem == null)
                 return;
 
-            textBoxMake.Text = listBoxMake.SelectedItem.ToString();
-            MessageBox.Show(listBoxMake.SelectedIndex.ToString());
+            var test = listBoxMake.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string id = "";
+            string make = "";
+
+            foreach (String s in array)
+            {
+                id = array[0];
+                make = array[1];
+            }
+
+            makeID = Convert.ToInt32(id);
+            
+            textBoxMake.Text = make;
+        }
+        private void listBoxModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (listBoxModel.SelectedItem == null)
+                return;
+
+            var test = listBoxModel.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string id = "";
+            string model = "";
+
+            foreach (String s in array)
+            {
+                id = array[0];
+                model = array[1];
+            }
+
+            modelID = Convert.ToInt32(id);
+
+            textBoxModel.Text = model;
         }
 
         private void comboBoxMake_SelectedIndexChanged(object sender, EventArgs e)
@@ -311,10 +349,7 @@ namespace FleetManagementPr
             modelID = Convert.ToInt32(id);
         }
 
-        private void buttonToAddMake_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void buttonToUpdateMakeList_Click(object sender, EventArgs e)
         {
@@ -339,6 +374,26 @@ namespace FleetManagementPr
             {
                 listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
+        }
+
+        private void buttonToAddModel_Click(object sender, EventArgs e)
+        {
+            string model = textBoxModel.Text;
+
+            Veichles addModel = new Veichles(model);
+            db.addModel(addModel);
+        }
+        private void buttonToUpdateModel_Click(object sender, EventArgs e)
+        {
+            string model = textBoxModel.Text;
+            Veichles updateModel = new Veichles(makeID, model);
+            db.updateModel(updateModel);
+        }
+
+        private void buttonToDeleteModel_Click(object sender, EventArgs e)
+        {
+            Veichles deleteModel = new Veichles(modelID);
+            db.deleteModel(deleteModel);
         }
     }
 }

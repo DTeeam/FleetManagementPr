@@ -138,7 +138,6 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                //TODO
                 NpgsqlCommand com = new NpgsqlCommand("SELECT deleteVeichles(" + remove.id + ")", conn);
 
                 com.ExecuteNonQuery();
@@ -192,6 +191,37 @@ namespace Database
                     }
                 }
                 return displayModels;
+            }
+        }
+
+        public void addModel(Veichles add)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  addModel('" + add.model + "');", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+        public void deleteModel(Veichles remove)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT deleteModel(" + remove.id + ")", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+        public void updateModel(Veichles update)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateModel(" + update.id + ", '" + update.model + "');", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
             }
         }
     }

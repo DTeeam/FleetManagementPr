@@ -47,6 +47,11 @@ namespace Database
             this.id = id;
         }
 
+        public Veichles(string model)
+        {
+            this.model = model;
+        }
+
         public Veichles(int id, string type, int yearOfMake, int modelID, int placeID)
         {
             this.id = id;
@@ -54,6 +59,13 @@ namespace Database
             this.yearOfMake = yearOfMake;
             this.modelID = modelID;
             this.placeID = placeID;
+        }
+
+        public Veichles(int modelID, string model, int makeID)
+        {
+            this.modelID = modelID;
+            this.model = model;
+            this.makeID = makeID;
         }
     }
 }

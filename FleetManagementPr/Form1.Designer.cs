@@ -140,7 +140,6 @@ namespace FleetManagementPr
             this.buttonToAddMake.TabIndex = 7;
             this.buttonToAddMake.Text = "Add make";
             this.buttonToAddMake.UseVisualStyleBackColor = true;
-            this.buttonToAddMake.Click += new System.EventHandler(this.buttonToAddMake_Click);
             // 
             // textBoxModel
             // 
@@ -181,6 +180,7 @@ namespace FleetManagementPr
             this.listBoxModel.Name = "listBoxModel";
             this.listBoxModel.Size = new System.Drawing.Size(201, 147);
             this.listBoxModel.TabIndex = 2;
+            this.listBoxModel.SelectedIndexChanged += new System.EventHandler(this.listBoxModel_SelectedIndexChanged);
             // 
             // listBoxMake
             // 
@@ -501,6 +501,7 @@ namespace FleetManagementPr
             this.buttonToDeleteModel.TabIndex = 14;
             this.buttonToDeleteModel.Text = "Delete model";
             this.buttonToDeleteModel.UseVisualStyleBackColor = true;
+            this.buttonToDeleteModel.Click += new System.EventHandler(this.buttonToDeleteModel_Click);
             // 
             // buttonToUpdateModel
             // 
@@ -510,6 +511,7 @@ namespace FleetManagementPr
             this.buttonToUpdateModel.TabIndex = 13;
             this.buttonToUpdateModel.Text = "Update model";
             this.buttonToUpdateModel.UseVisualStyleBackColor = true;
+            this.buttonToUpdateModel.Click += new System.EventHandler(this.buttonToUpdateModel_Click);
             // 
             // buttonToAddModel
             // 
@@ -519,6 +521,7 @@ namespace FleetManagementPr
             this.buttonToAddModel.TabIndex = 12;
             this.buttonToAddModel.Text = "Add model";
             this.buttonToAddModel.UseVisualStyleBackColor = true;
+            this.buttonToAddModel.Click += new System.EventHandler(this.buttonToAddModel_Click);
             // 
             // Form1
             // 

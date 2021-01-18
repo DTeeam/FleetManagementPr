@@ -17,6 +17,8 @@ namespace FleetManagementPr
         string placeID = "";
         string veichleID = "";
         int veichlePlaceID;
+        int makeID;
+        int modelID;
         public Form1()
         {
             InitializeComponent();
@@ -205,26 +207,24 @@ namespace FleetManagementPr
 
         private void buttonToAddVeichle_Click(object sender, EventArgs e)
         {
-            int modelID = comboBoxModel.SelectedIndex + 1;
             string type = textBoxType.Text;
             int year = Convert.ToInt32(numericUpDownYearOfMake.Value);
             
             Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
             db.addVeichle(addVeichle);
-            
+            MessageBox.Show(modelID.ToString());
         }
 
         private void buttonUpdateVeichle_Click(object sender, EventArgs e)
         {
             string type;
             int year;
-            int modelID;
+            
             string place;
             int placeID = 0;
 
             type = textBoxType.Text;
             year = Convert.ToInt32(numericUpDownYearOfMake.Value);
-            modelID = comboBoxModel.SelectedIndex + 1;
             place = textBoxVeichlePlace.Text;
             int i = listBoxVeichlePlaces.Items.Count;
 
@@ -277,5 +277,39 @@ namespace FleetManagementPr
             textBoxMake.Text = listBoxMake.SelectedItem.ToString();
             MessageBox.Show(listBoxMake.SelectedIndex.ToString());
         }
+
+        private void comboBoxMake_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var test = comboBoxMake.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string id = "";
+
+            foreach (String s in array)
+            {
+                id = array[0];
+            }
+            makeID = Convert.ToInt32(id);
+
+        }
+
+        private void comboBoxModel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            var test = comboBoxModel.SelectedItem;
+
+            string splitString = test.ToString();
+            string[] array = splitString.Split(new string[] { " | " }, StringSplitOptions.None);
+
+            string id = "";
+
+            foreach (String s in array)
+            {
+                id = array[0];
+            }
+            modelID = Convert.ToInt32(id);
+        }
+
     }
 }

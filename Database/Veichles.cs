@@ -13,6 +13,7 @@ namespace Database
         public string make { get; set; }
         public string model { get; set; }
         public string place { get; set; }
+        public int makeID { get; set; }
         public int modelID { get; set; }
         public int placeID { get; set; }
 
@@ -26,8 +27,9 @@ namespace Database
             this.place = place;
         }
 
-        public Veichles(string model)
+        public Veichles(int makeID, string model)
         {
+            this.makeID = makeID;
             this.model = model;
         }
        

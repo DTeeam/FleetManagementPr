@@ -258,14 +258,14 @@ namespace FleetManagementPr
         {
             foreach (Veichles veichle in listToDisplay)
             {
-                comboBoxMake.Items.Add(veichle.model);
+                comboBoxMake.Items.Add(veichle.makeID + " | " +  veichle.model);
             }
         }
         private void printListComboMake(List<Veichles> listToDisplay)
         {
             foreach (Veichles veichle in listToDisplay)
             {
-                comboBoxModel.Items.Add(veichle.model);
+                comboBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
         }
 

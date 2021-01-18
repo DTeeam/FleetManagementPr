@@ -158,10 +158,10 @@ namespace Database
 
                     while (reader.Read())
                     {
-                        //int id = reader.GetInt32(0);
-                        string make = reader.GetString(0);
+                        int id = reader.GetInt32(0);
+                        string make = reader.GetString(1);
 
-                        Veichles reading = new Veichles(make);
+                        Veichles reading = new Veichles(id, make);
 
                         displayMakes.Add(reading);
                     }
@@ -183,9 +183,10 @@ namespace Database
                     while (reader.Read())
                     {
                         //int id = reader.GetInt32(0);
-                        string model = reader.GetString(0);
+                        int id = reader.GetInt32(0);
+                        string model = reader.GetString(1);
 
-                        Veichles reading = new Veichles(model);
+                        Veichles reading = new Veichles(id, model);
 
                         displayModels.Add(reading);
                     }

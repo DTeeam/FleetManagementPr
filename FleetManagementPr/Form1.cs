@@ -17,8 +17,10 @@ namespace FleetManagementPr
         private CompanyDB db = new CompanyDB();
         List<Veichles> listToDisplayMake = new List<Veichles>();
         List<Veichles> listToDisplayModel = new List<Veichles>();
+        List<Places> listToDisplayPlaces = new List<Places>();
         string placeID = "";
         string veichleID = "";
+        string placeName123;
         int veichlePlaceID;
         int makeID;
         int modelID;
@@ -27,12 +29,12 @@ namespace FleetManagementPr
             InitializeComponent();
             listToDisplayMake = db.readMakes();
             listToDisplayModel = db.readModels();
+            listToDisplayPlaces = db.readPlaces();
         }
 
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            List<Places> listToDisplayPlaces = db.readPlaces();
             listBox1.Items.Clear();
             listBoxVeichlePlaces.Items.Clear();
 
@@ -204,10 +206,17 @@ namespace FleetManagementPr
                 }
             }
 
+            foreach (Places tut in listToDisplayPlaces)
+            {
+                if (tut.name.Contains(place) == true)
+                {
+                    listBoxVeichlePlaces.SelectedItem = tut.name;
+                }
+            }
+
             textBoxType.Text = type;
             numericUpDownYearOfMake.Value = Convert.ToInt32(year);
             textBoxVeichlePlace.Text = place;
-            //model
         }
 
         private void buttonToPrintVeichles_Click(object sender, EventArgs e)
@@ -230,7 +239,7 @@ namespace FleetManagementPr
             
             Veichles addVeichle = new Veichles(type, year, modelID, veichlePlaceID);
             db.addVeichle(addVeichle);
-            MessageBox.Show(modelID.ToString());
+            //MessageBox.Show(veichlePlaceID.ToString());
         }
 
         private void buttonUpdateVeichle_Click(object sender, EventArgs e)
@@ -256,7 +265,6 @@ namespace FleetManagementPr
             
             Veichles updateVeichle = new Veichles(Convert.ToInt32(veichleID), type, year, modelID, placeID);
             db.updateVeichle(updateVeichle);
-            MessageBox.Show(modelID.ToString());
         }
 
         private void buttonDeleteVeichle_Click(object sender, EventArgs e)

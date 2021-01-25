@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -13,7 +14,9 @@ namespace FleetManagementPr
 {
     public partial class Form1 : Form
     {
-        private CompanyDB db;
+        private CompanyDB db = new CompanyDB();
+        List<Veichles> listToDisplayMake = new List<Veichles>();
+        List<Veichles> listToDisplayModel = new List<Veichles>();
         string placeID = "";
         string veichleID = "";
         int veichlePlaceID;
@@ -22,8 +25,10 @@ namespace FleetManagementPr
         public Form1()
         {
             InitializeComponent();
-            db = new CompanyDB();
+            listToDisplayMake = db.readMakes();
+            listToDisplayModel = db.readModels();
         }
+
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -51,8 +56,8 @@ namespace FleetManagementPr
                     veichle.model + " | " + veichle.yearOfMake + " | " + veichle.place);
             }
 
-            List<Veichles> listToDisplayMake = db.readMakes();
-            List<Veichles> listToDisplayModel = db.readModels();
+            //List<Veichles> listToDisplayMake = db.readMakes();
+            //List<Veichles> listToDisplayModel = db.readModels();
 
             comboBoxMake.Items.Clear();
             comboBoxModel.Items.Clear();
@@ -183,12 +188,26 @@ namespace FleetManagementPr
                 place = array[5];
             }
 
+            foreach(Veichles veichle in listToDisplayMake)
+            {
+                if (veichle.model.Contains(make) == true)
+                {
+                    comboBoxMake.SelectedItem = veichle.makeID + " | " + veichle.model;
+                }
+            }
+
+            foreach (Veichles veichle in listToDisplayModel)
+            {
+                if (veichle.model.Contains(model) == true)
+                {
+                    comboBoxModel.SelectedItem = veichle.makeID + " | " + veichle.model;
+                }
+            }
+
             textBoxType.Text = type;
-            comboBoxMake.Text = make;
-            comboBoxModel.Text = model;
             numericUpDownYearOfMake.Value = Convert.ToInt32(year);
             textBoxVeichlePlace.Text = place;
-
+            //model
         }
 
         private void buttonToPrintVeichles_Click(object sender, EventArgs e)
@@ -237,7 +256,7 @@ namespace FleetManagementPr
             
             Veichles updateVeichle = new Veichles(Convert.ToInt32(veichleID), type, year, modelID, placeID);
             db.updateVeichle(updateVeichle);
-            MessageBox.Show(placeID.ToString());
+            MessageBox.Show(modelID.ToString());
         }
 
         private void buttonDeleteVeichle_Click(object sender, EventArgs e)
@@ -312,8 +331,7 @@ namespace FleetManagementPr
             }
 
             modelID = Convert.ToInt32(id);
-
-            textBoxModel.Text = model;
+            MessageBox.Show(modelID.ToString());
         }
 
         private void comboBoxMake_SelectedIndexChanged(object sender, EventArgs e)
@@ -430,6 +448,16 @@ namespace FleetManagementPr
         {
             Veichles deleteMake = new Veichles(makeID);
             db.deleteMake(deleteMake);
+        }
+
+        
+    }
+
+    public static class MyStringExtensions
+    {
+        public static bool Like(this string toSearch, string toFind)
+        {
+            return new Regex(@"\A" + new Regex(@"\.|\$|\^|\{|\[|\(|\||\)|\*|\+|\?|\\").Replace(toFind, ch => @"\" + ch).Replace('_', '.').Replace("%", ".*") + @"\z", RegexOptions.Singleline).IsMatch(toSearch);
         }
     }
 }

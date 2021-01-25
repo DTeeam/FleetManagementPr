@@ -31,6 +31,11 @@ namespace FleetManagementPr
         {
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.buttonToDeleteModel = new System.Windows.Forms.Button();
+            this.buttonToUpdateModel = new System.Windows.Forms.Button();
+            this.buttonToAddModel = new System.Windows.Forms.Button();
+            this.buttonToUpdateModelList = new System.Windows.Forms.Button();
+            this.buttonToUpdateMakeList = new System.Windows.Forms.Button();
             this.buttonToDeleteMake = new System.Windows.Forms.Button();
             this.buttonToUpdateMake = new System.Windows.Forms.Button();
             this.buttonToAddMake = new System.Windows.Forms.Button();
@@ -67,11 +72,6 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
-            this.buttonToUpdateMakeList = new System.Windows.Forms.Button();
-            this.buttonToUpdateModelList = new System.Windows.Forms.Button();
-            this.buttonToDeleteModel = new System.Windows.Forms.Button();
-            this.buttonToUpdateModel = new System.Windows.Forms.Button();
-            this.buttonToAddModel = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -113,6 +113,56 @@ namespace FleetManagementPr
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Make and model";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // buttonToDeleteModel
+            // 
+            this.buttonToDeleteModel.Location = new System.Drawing.Point(454, 324);
+            this.buttonToDeleteModel.Name = "buttonToDeleteModel";
+            this.buttonToDeleteModel.Size = new System.Drawing.Size(100, 23);
+            this.buttonToDeleteModel.TabIndex = 14;
+            this.buttonToDeleteModel.Text = "Delete model";
+            this.buttonToDeleteModel.UseVisualStyleBackColor = true;
+            this.buttonToDeleteModel.Click += new System.EventHandler(this.buttonToDeleteModel_Click);
+            // 
+            // buttonToUpdateModel
+            // 
+            this.buttonToUpdateModel.Location = new System.Drawing.Point(454, 295);
+            this.buttonToUpdateModel.Name = "buttonToUpdateModel";
+            this.buttonToUpdateModel.Size = new System.Drawing.Size(100, 23);
+            this.buttonToUpdateModel.TabIndex = 13;
+            this.buttonToUpdateModel.Text = "Update model";
+            this.buttonToUpdateModel.UseVisualStyleBackColor = true;
+            this.buttonToUpdateModel.Click += new System.EventHandler(this.buttonToUpdateModel_Click);
+            // 
+            // buttonToAddModel
+            // 
+            this.buttonToAddModel.Location = new System.Drawing.Point(454, 266);
+            this.buttonToAddModel.Name = "buttonToAddModel";
+            this.buttonToAddModel.Size = new System.Drawing.Size(100, 23);
+            this.buttonToAddModel.TabIndex = 12;
+            this.buttonToAddModel.Text = "Add model";
+            this.buttonToAddModel.UseVisualStyleBackColor = true;
+            this.buttonToAddModel.Click += new System.EventHandler(this.buttonToAddModel_Click);
+            // 
+            // buttonToUpdateModelList
+            // 
+            this.buttonToUpdateModelList.Location = new System.Drawing.Point(582, 390);
+            this.buttonToUpdateModelList.Name = "buttonToUpdateModelList";
+            this.buttonToUpdateModelList.Size = new System.Drawing.Size(75, 23);
+            this.buttonToUpdateModelList.TabIndex = 11;
+            this.buttonToUpdateModelList.Text = "Update";
+            this.buttonToUpdateModelList.UseVisualStyleBackColor = true;
+            this.buttonToUpdateModelList.Click += new System.EventHandler(this.buttonToUpdateModelList_Click);
+            // 
+            // buttonToUpdateMakeList
+            // 
+            this.buttonToUpdateMakeList.Location = new System.Drawing.Point(582, 160);
+            this.buttonToUpdateMakeList.Name = "buttonToUpdateMakeList";
+            this.buttonToUpdateMakeList.Size = new System.Drawing.Size(75, 23);
+            this.buttonToUpdateMakeList.TabIndex = 10;
+            this.buttonToUpdateMakeList.Text = "Update";
+            this.buttonToUpdateMakeList.UseVisualStyleBackColor = true;
+            this.buttonToUpdateMakeList.Click += new System.EventHandler(this.buttonToUpdateMakeList_Click);
             // 
             // buttonToDeleteMake
             // 
@@ -232,7 +282,7 @@ namespace FleetManagementPr
             // 
             // buttonUpdateVeichle
             // 
-            this.buttonUpdateVeichle.Location = new System.Drawing.Point(105, 196);
+            this.buttonUpdateVeichle.Location = new System.Drawing.Point(105, 230);
             this.buttonUpdateVeichle.Name = "buttonUpdateVeichle";
             this.buttonUpdateVeichle.Size = new System.Drawing.Size(88, 23);
             this.buttonUpdateVeichle.TabIndex = 34;
@@ -332,7 +382,7 @@ namespace FleetManagementPr
             // 
             // buttonToAddVeichle
             // 
-            this.buttonToAddVeichle.Location = new System.Drawing.Point(105, 225);
+            this.buttonToAddVeichle.Location = new System.Drawing.Point(105, 196);
             this.buttonToAddVeichle.Name = "buttonToAddVeichle";
             this.buttonToAddVeichle.Size = new System.Drawing.Size(88, 23);
             this.buttonToAddVeichle.TabIndex = 18;
@@ -475,56 +525,6 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.Text = "Update";
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
-            // 
-            // buttonToUpdateMakeList
-            // 
-            this.buttonToUpdateMakeList.Location = new System.Drawing.Point(582, 160);
-            this.buttonToUpdateMakeList.Name = "buttonToUpdateMakeList";
-            this.buttonToUpdateMakeList.Size = new System.Drawing.Size(75, 23);
-            this.buttonToUpdateMakeList.TabIndex = 10;
-            this.buttonToUpdateMakeList.Text = "Update";
-            this.buttonToUpdateMakeList.UseVisualStyleBackColor = true;
-            this.buttonToUpdateMakeList.Click += new System.EventHandler(this.buttonToUpdateMakeList_Click);
-            // 
-            // buttonToUpdateModelList
-            // 
-            this.buttonToUpdateModelList.Location = new System.Drawing.Point(582, 390);
-            this.buttonToUpdateModelList.Name = "buttonToUpdateModelList";
-            this.buttonToUpdateModelList.Size = new System.Drawing.Size(75, 23);
-            this.buttonToUpdateModelList.TabIndex = 11;
-            this.buttonToUpdateModelList.Text = "Update";
-            this.buttonToUpdateModelList.UseVisualStyleBackColor = true;
-            this.buttonToUpdateModelList.Click += new System.EventHandler(this.buttonToUpdateModelList_Click);
-            // 
-            // buttonToDeleteModel
-            // 
-            this.buttonToDeleteModel.Location = new System.Drawing.Point(454, 324);
-            this.buttonToDeleteModel.Name = "buttonToDeleteModel";
-            this.buttonToDeleteModel.Size = new System.Drawing.Size(100, 23);
-            this.buttonToDeleteModel.TabIndex = 14;
-            this.buttonToDeleteModel.Text = "Delete model";
-            this.buttonToDeleteModel.UseVisualStyleBackColor = true;
-            this.buttonToDeleteModel.Click += new System.EventHandler(this.buttonToDeleteModel_Click);
-            // 
-            // buttonToUpdateModel
-            // 
-            this.buttonToUpdateModel.Location = new System.Drawing.Point(454, 295);
-            this.buttonToUpdateModel.Name = "buttonToUpdateModel";
-            this.buttonToUpdateModel.Size = new System.Drawing.Size(100, 23);
-            this.buttonToUpdateModel.TabIndex = 13;
-            this.buttonToUpdateModel.Text = "Update model";
-            this.buttonToUpdateModel.UseVisualStyleBackColor = true;
-            this.buttonToUpdateModel.Click += new System.EventHandler(this.buttonToUpdateModel_Click);
-            // 
-            // buttonToAddModel
-            // 
-            this.buttonToAddModel.Location = new System.Drawing.Point(454, 266);
-            this.buttonToAddModel.Name = "buttonToAddModel";
-            this.buttonToAddModel.Size = new System.Drawing.Size(100, 23);
-            this.buttonToAddModel.TabIndex = 12;
-            this.buttonToAddModel.Text = "Add model";
-            this.buttonToAddModel.UseVisualStyleBackColor = true;
-            this.buttonToAddModel.Click += new System.EventHandler(this.buttonToAddModel_Click);
             // 
             // Form1
             // 

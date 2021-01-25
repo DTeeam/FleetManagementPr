@@ -132,6 +132,7 @@ namespace FleetManagementPr
             this.buttonToUpdateMake.TabIndex = 8;
             this.buttonToUpdateMake.Text = "Update make";
             this.buttonToUpdateMake.UseVisualStyleBackColor = true;
+            this.buttonToUpdateMake.Click += new System.EventHandler(this.buttonToUpdateMake_Click);
             // 
             // buttonToAddMake
             // 

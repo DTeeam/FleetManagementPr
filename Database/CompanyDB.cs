@@ -63,7 +63,6 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                //TODO
                 NpgsqlCommand com = new NpgsqlCommand("SELECT deletePlaces(" + remove.id + ")", conn);
 
                 com.ExecuteNonQuery();
@@ -239,6 +238,17 @@ namespace Database
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
                 NpgsqlCommand com = new NpgsqlCommand("SELECT deleteMake(" + remove.id + ")", conn);
+
+                com.ExecuteNonQuery();
+                transaction.Commit();
+            }
+        }
+
+        public void updateMake(Veichles update)
+        {
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateMake(" + update.makeID + ", '" + update.make + "');", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();

@@ -72,7 +72,6 @@ namespace FleetManagementPr
             {
                 listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
-
         }
 
         private void buttonToAddPlace_Click(object sender, EventArgs e)
@@ -238,6 +237,7 @@ namespace FleetManagementPr
             
             Veichles updateVeichle = new Veichles(Convert.ToInt32(veichleID), type, year, modelID, placeID);
             db.updateVeichle(updateVeichle);
+            MessageBox.Show(placeID.ToString());
         }
 
         private void buttonDeleteVeichle_Click(object sender, EventArgs e)
@@ -417,6 +417,13 @@ namespace FleetManagementPr
 
             Veichles addMake = new Veichles(model, make, makeID);
             db.addMake(addMake);
+        }
+        private void buttonToUpdateMake_Click(object sender, EventArgs e)
+        {
+            string make = textBoxMake.Text;
+
+            Veichles updateMake = new Veichles(makeID, make);
+            db.updateMake(updateMake);
         }
 
         private void buttonToDeleteMake_Click(object sender, EventArgs e)

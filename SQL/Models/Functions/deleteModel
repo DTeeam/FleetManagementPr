@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION deleteModel(modeli_id int)
+RETURNS VOID AS $$
+DECLARE
+BEGIN
+
+	DELETE FROM modeli
+	WHERE id = modeli_id;
+	
+END;
+$$ LANGUAGE 'plpgsql';

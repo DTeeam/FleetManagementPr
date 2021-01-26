@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION updateMake(make_id int, make_name varchar)
+RETURNS VOID AS $$
+
+BEGIN 
+	
+	UPDATE znamke
+	SET ime = make_name
+	WHERE id = make_id;
+
+END;
+$$ LANGUAGE 'plpgsql';

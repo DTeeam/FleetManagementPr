@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION updatePlace(id_user int, name varchar, num varchar)
+RETURNS VOID AS $$
+BEGIN
+	
+	UPDATE kraji
+	SET ime = name, posta = num
+	WHERE id = id_user;
+
+END;
+$$ LANGUAGE 'plpgsql';

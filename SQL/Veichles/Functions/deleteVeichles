@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION deleteVeichles(veichle_id int)
+RETURNS VOID AS $$
+BEGIN
+	
+	DELETE FROM vozila
+	WHERE (id = veichle_id);
+
+END;
+$$ LANGUAGE 'plpgsql';

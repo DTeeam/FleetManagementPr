@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION addVeichles(type varchar, yearNum int, model int, place int)
+RETURNS VOID AS $$
+BEGIN
+	
+	INSERT INTO vozila (tip, letnik, model_id, kraj_id)
+	VALUES (type, yearNum, model, place);
+
+END;
+$$ LANGUAGE 'plpgsql';

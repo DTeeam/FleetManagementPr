@@ -1,0 +1,9 @@
+CREATE OR REPLACE FUNCTION addPlaces(name varchar, postalNum int)
+RETURNS VOID AS $$
+BEGIN
+	
+	INSERT INTO kraji (ime, posta)
+	VALUES (name, postalNum);
+
+END;
+$$ LANGUAGE 'plpgsql';

@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION deleteMake(znamke_id int)
+RETURNS VOID AS $$
+DECLARE
+BEGIN
+
+	DELETE FROM modeli
+	WHERE znamka_id = znamke_id;
+
+	DELETE FROM znamke
+	WHERE id = znamke_id;
+	
+END;
+$$ LANGUAGE 'plpgsql';

@@ -1,9 +1,0 @@
-CREATE OR REPLACE FUNCTION deletePlaces(place_id int)
-RETURNS VOID AS $$	
-BEGIN
-	
-	DELETE FROM kraji
-	WHERE (id = place_id);
-
-END;
-$$ LANGUAGE 'plpgsql';

@@ -29,9 +29,9 @@ namespace FleetManagementPr
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonToDeleteModel = new System.Windows.Forms.Button();
@@ -49,6 +49,9 @@ namespace FleetManagementPr
             this.listBoxModel = new System.Windows.Forms.ListBox();
             this.listBoxMake = new System.Windows.Forms.ListBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.buttonHideChart = new System.Windows.Forms.Button();
+            this.buttonShowChart = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.buttonDeleteVeichle = new System.Windows.Forms.Button();
             this.buttonUpdateVeichle = new System.Windows.Forms.Button();
             this.textBoxVeichlePlace = new System.Windows.Forms.TextBox();
@@ -76,15 +79,12 @@ namespace FleetManagementPr
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
             this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
-            this.buttonShowChart = new System.Windows.Forms.Button();
-            this.buttonHideChart = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -280,6 +280,44 @@ namespace FleetManagementPr
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Veichles";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // buttonHideChart
+            // 
+            this.buttonHideChart.Location = new System.Drawing.Point(371, 37);
+            this.buttonHideChart.Name = "buttonHideChart";
+            this.buttonHideChart.Size = new System.Drawing.Size(88, 23);
+            this.buttonHideChart.TabIndex = 39;
+            this.buttonHideChart.Text = "Hide graph";
+            this.buttonHideChart.UseVisualStyleBackColor = true;
+            this.buttonHideChart.Click += new System.EventHandler(this.buttonHideChart_Click);
+            // 
+            // buttonShowChart
+            // 
+            this.buttonShowChart.Location = new System.Drawing.Point(371, 8);
+            this.buttonShowChart.Name = "buttonShowChart";
+            this.buttonShowChart.Size = new System.Drawing.Size(88, 23);
+            this.buttonShowChart.TabIndex = 38;
+            this.buttonShowChart.Text = "Show graph";
+            this.buttonShowChart.UseVisualStyleBackColor = true;
+            this.buttonShowChart.Click += new System.EventHandler(this.buttonShowGraph_Click);
+            // 
+            // chart1
+            // 
+            chartArea1.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chart1.Legends.Add(legend1);
+            this.chart1.Location = new System.Drawing.Point(483, 126);
+            this.chart1.Name = "chart1";
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Number of veichles";
+            series1.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chart1.Series.Add(series1);
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 37;
+            this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
             // 
             // buttonDeleteVeichle
             // 
@@ -545,44 +583,6 @@ namespace FleetManagementPr
             this.npgsqlDataAdapter1.SelectCommand = null;
             this.npgsqlDataAdapter1.UpdateCommand = null;
             // 
-            // chart1
-            // 
-            chartArea2.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chart1.Legends.Add(legend2);
-            this.chart1.Location = new System.Drawing.Point(483, 126);
-            this.chart1.Name = "chart1";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Number of veichles";
-            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
-            this.chart1.Series.Add(series2);
-            this.chart1.Size = new System.Drawing.Size(300, 300);
-            this.chart1.TabIndex = 37;
-            this.chart1.Text = "chart1";
-            this.chart1.Visible = false;
-            // 
-            // buttonShowChart
-            // 
-            this.buttonShowChart.Location = new System.Drawing.Point(371, 8);
-            this.buttonShowChart.Name = "buttonShowChart";
-            this.buttonShowChart.Size = new System.Drawing.Size(88, 23);
-            this.buttonShowChart.TabIndex = 38;
-            this.buttonShowChart.Text = "Show graph";
-            this.buttonShowChart.UseVisualStyleBackColor = true;
-            this.buttonShowChart.Click += new System.EventHandler(this.buttonShowGraph_Click);
-            // 
-            // buttonHideChart
-            // 
-            this.buttonHideChart.Location = new System.Drawing.Point(371, 37);
-            this.buttonHideChart.Name = "buttonHideChart";
-            this.buttonHideChart.Size = new System.Drawing.Size(88, 23);
-            this.buttonHideChart.TabIndex = 39;
-            this.buttonHideChart.Text = "Hide graph";
-            this.buttonHideChart.UseVisualStyleBackColor = true;
-            this.buttonHideChart.Click += new System.EventHandler(this.buttonHideChart_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -597,10 +597,10 @@ namespace FleetManagementPr
             this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }

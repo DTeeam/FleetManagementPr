@@ -248,12 +248,13 @@ namespace Database
         {
             using (NpgsqlTransaction transaction = conn.BeginTransaction())
             {
-                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateMake(" + update.makeID + ", '" + update.make + "');", conn);
+                NpgsqlCommand com = new NpgsqlCommand("SELECT  updateMake(" + update.makeID + ", '" + update.model + "');", conn);
 
                 com.ExecuteNonQuery();
                 transaction.Commit();
             }
         }
+
         public List<Places> readForChart()
         {
             List<Places> chartDisplay = new List<Places>();

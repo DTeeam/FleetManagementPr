@@ -341,7 +341,7 @@ namespace FleetManagementPr
             }
 
             modelID = Convert.ToInt32(id);
-            MessageBox.Show(modelID.ToString());
+            textBoxModel.Text = model;
         }
 
         private void comboBoxMake_SelectedIndexChanged(object sender, EventArgs e)
@@ -445,15 +445,6 @@ namespace FleetManagementPr
 
             Veichles addMake = new Veichles(model, make, makeID);
             db.addMake(addMake);
-
-            List<Veichles> listToDisplayMake = db.readMakes();
-
-            listBoxMake.Items.Clear();
-
-            foreach (Veichles veichle in listToDisplayMake)
-            {
-                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
-            }
         }
         private void buttonToUpdateMake_Click(object sender, EventArgs e)
         {
@@ -461,39 +452,12 @@ namespace FleetManagementPr
 
             Veichles updateMake = new Veichles(makeID, make);
             db.updateMake(updateMake);
-
-            List<Veichles> listToDisplayMake = db.readMakes();
-
-            listBoxMake.Items.Clear();
-
-            foreach (Veichles veichle in listToDisplayMake)
-            {
-                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
-            }
-
-            List<Veichles> listToDisplayModel = db.readModels();
-
-            listBoxModel.Items.Clear();
-
-            foreach (Veichles veichle in listToDisplayModel)
-            {
-                listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
-            }
         }
 
         private void buttonToDeleteMake_Click(object sender, EventArgs e)
         {
             Veichles deleteMake = new Veichles(makeID);
             db.deleteMake(deleteMake);
-
-            List<Veichles> listToDisplayMake = db.readMakes();
-
-            listBoxMake.Items.Clear();
-
-            foreach (Veichles veichle in listToDisplayMake)
-            {
-                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
-            }
         }
 
         private void buttonShowGraph_Click(object sender, EventArgs e)
@@ -512,6 +476,7 @@ namespace FleetManagementPr
             
             chart1.Hide();
         }
+
     }
 
     public static class MyStringExtensions

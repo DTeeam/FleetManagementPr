@@ -29,6 +29,9 @@ namespace FleetManagementPr
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend2 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series2 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.buttonToDeleteModel = new System.Windows.Forms.Button();
@@ -72,11 +75,16 @@ namespace FleetManagementPr
             this.textBoxPlaceName = new System.Windows.Forms.TextBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.buttonToPrintPlaces = new System.Windows.Forms.Button();
+            this.npgsqlDataAdapter1 = new Npgsql.NpgsqlDataAdapter();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.buttonShowChart = new System.Windows.Forms.Button();
+            this.buttonHideChart = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).BeginInit();
             this.tabPage3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -150,7 +158,7 @@ namespace FleetManagementPr
             this.buttonToUpdateModelList.Name = "buttonToUpdateModelList";
             this.buttonToUpdateModelList.Size = new System.Drawing.Size(75, 23);
             this.buttonToUpdateModelList.TabIndex = 11;
-            this.buttonToUpdateModelList.Text = "Update";
+            this.buttonToUpdateModelList.Text = "Refresh";
             this.buttonToUpdateModelList.UseVisualStyleBackColor = true;
             this.buttonToUpdateModelList.Click += new System.EventHandler(this.buttonToUpdateModelList_Click);
             // 
@@ -160,7 +168,7 @@ namespace FleetManagementPr
             this.buttonToUpdateMakeList.Name = "buttonToUpdateMakeList";
             this.buttonToUpdateMakeList.Size = new System.Drawing.Size(75, 23);
             this.buttonToUpdateMakeList.TabIndex = 10;
-            this.buttonToUpdateMakeList.Text = "Update";
+            this.buttonToUpdateMakeList.Text = "Refresh";
             this.buttonToUpdateMakeList.UseVisualStyleBackColor = true;
             this.buttonToUpdateMakeList.Click += new System.EventHandler(this.buttonToUpdateMakeList_Click);
             // 
@@ -246,6 +254,9 @@ namespace FleetManagementPr
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.buttonHideChart);
+            this.tabPage2.Controls.Add(this.buttonShowChart);
+            this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Controls.Add(this.buttonDeleteVeichle);
             this.tabPage2.Controls.Add(this.buttonUpdateVeichle);
             this.tabPage2.Controls.Add(this.textBoxVeichlePlace);
@@ -423,7 +434,8 @@ namespace FleetManagementPr
             this.buttonToPrintVeichles.Name = "buttonToPrintVeichles";
             this.buttonToPrintVeichles.Size = new System.Drawing.Size(75, 23);
             this.buttonToPrintVeichles.TabIndex = 12;
-            this.buttonToPrintVeichles.Text = "Update";
+            this.buttonToPrintVeichles.Text = "Refresh";
+            this.buttonToPrintVeichles.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.buttonToPrintVeichles.UseVisualStyleBackColor = true;
             this.buttonToPrintVeichles.Click += new System.EventHandler(this.buttonToPrintVeichles_Click);
             // 
@@ -522,9 +534,54 @@ namespace FleetManagementPr
             this.buttonToPrintPlaces.Name = "buttonToPrintPlaces";
             this.buttonToPrintPlaces.Size = new System.Drawing.Size(75, 23);
             this.buttonToPrintPlaces.TabIndex = 5;
-            this.buttonToPrintPlaces.Text = "Update";
+            this.buttonToPrintPlaces.Text = "Refresh";
             this.buttonToPrintPlaces.UseVisualStyleBackColor = true;
             this.buttonToPrintPlaces.Click += new System.EventHandler(this.buttonToPrintPlaces_Click);
+            // 
+            // npgsqlDataAdapter1
+            // 
+            this.npgsqlDataAdapter1.DeleteCommand = null;
+            this.npgsqlDataAdapter1.InsertCommand = null;
+            this.npgsqlDataAdapter1.SelectCommand = null;
+            this.npgsqlDataAdapter1.UpdateCommand = null;
+            // 
+            // chart1
+            // 
+            chartArea2.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea2);
+            legend2.Name = "Legend1";
+            this.chart1.Legends.Add(legend2);
+            this.chart1.Location = new System.Drawing.Point(483, 126);
+            this.chart1.Name = "chart1";
+            series2.ChartArea = "ChartArea1";
+            series2.Legend = "Legend1";
+            series2.Name = "Number of veichles";
+            series2.YAxisType = System.Windows.Forms.DataVisualization.Charting.AxisType.Secondary;
+            this.chart1.Series.Add(series2);
+            this.chart1.Size = new System.Drawing.Size(300, 300);
+            this.chart1.TabIndex = 37;
+            this.chart1.Text = "chart1";
+            this.chart1.Visible = false;
+            // 
+            // buttonShowChart
+            // 
+            this.buttonShowChart.Location = new System.Drawing.Point(371, 8);
+            this.buttonShowChart.Name = "buttonShowChart";
+            this.buttonShowChart.Size = new System.Drawing.Size(88, 23);
+            this.buttonShowChart.TabIndex = 38;
+            this.buttonShowChart.Text = "Show graph";
+            this.buttonShowChart.UseVisualStyleBackColor = true;
+            this.buttonShowChart.Click += new System.EventHandler(this.buttonShowGraph_Click);
+            // 
+            // buttonHideChart
+            // 
+            this.buttonHideChart.Location = new System.Drawing.Point(371, 37);
+            this.buttonHideChart.Name = "buttonHideChart";
+            this.buttonHideChart.Size = new System.Drawing.Size(88, 23);
+            this.buttonHideChart.TabIndex = 39;
+            this.buttonHideChart.Text = "Hide graph";
+            this.buttonHideChart.UseVisualStyleBackColor = true;
+            this.buttonHideChart.Click += new System.EventHandler(this.buttonHideChart_Click);
             // 
             // Form1
             // 
@@ -543,6 +600,7 @@ namespace FleetManagementPr
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownYearOfMake)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -591,6 +649,10 @@ namespace FleetManagementPr
         private System.Windows.Forms.Button buttonToAddModel;
         private System.Windows.Forms.Button buttonToUpdateModelList;
         private System.Windows.Forms.Button buttonToUpdateMakeList;
+        private Npgsql.NpgsqlDataAdapter npgsqlDataAdapter1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.Button buttonShowChart;
+        private System.Windows.Forms.Button buttonHideChart;
     }
 }
 

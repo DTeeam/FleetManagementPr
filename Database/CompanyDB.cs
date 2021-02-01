@@ -254,5 +254,27 @@ namespace Database
                 transaction.Commit();
             }
         }
+        public List<Places> readForChart()
+        {
+            List<Places> chartDisplay = new List<Places>();
+            using (NpgsqlTransaction transaction = conn.BeginTransaction())
+            {
+                using (NpgsqlCommand com = new NpgsqlCommand("SELECT * FROM printPlacesChart()", conn))
+                {
+                    NpgsqlDataReader reader = com.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        string name = reader.GetString(0);
+                        int num = reader.GetInt32(1);
+
+                        Places reading = new Places(name, num);
+
+                        chartDisplay.Add(reading);
+                    }
+                }
+                return chartDisplay;
+            }
+        }
     }
 }

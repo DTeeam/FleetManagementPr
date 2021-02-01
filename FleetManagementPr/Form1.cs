@@ -18,6 +18,7 @@ namespace FleetManagementPr
         List<Veichles> listToDisplayMake = new List<Veichles>();
         List<Veichles> listToDisplayModel = new List<Veichles>();
         List<Places> listToDisplayPlaces = new List<Places>();
+        List<Places> listToDisplayChart = new List<Places>();
         string placeID = "";
         string veichleID = "";
         string placeName123;
@@ -30,6 +31,7 @@ namespace FleetManagementPr
             listToDisplayMake = db.readMakes();
             listToDisplayModel = db.readModels();
             listToDisplayPlaces = db.readPlaces();
+            listToDisplayChart = db.readForChart();
         }
 
 
@@ -443,6 +445,15 @@ namespace FleetManagementPr
 
             Veichles addMake = new Veichles(model, make, makeID);
             db.addMake(addMake);
+
+            List<Veichles> listToDisplayMake = db.readMakes();
+
+            listBoxMake.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayMake)
+            {
+                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
         }
         private void buttonToUpdateMake_Click(object sender, EventArgs e)
         {
@@ -450,15 +461,57 @@ namespace FleetManagementPr
 
             Veichles updateMake = new Veichles(makeID, make);
             db.updateMake(updateMake);
+
+            List<Veichles> listToDisplayMake = db.readMakes();
+
+            listBoxMake.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayMake)
+            {
+                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
+
+            List<Veichles> listToDisplayModel = db.readModels();
+
+            listBoxModel.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayModel)
+            {
+                listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
         }
 
         private void buttonToDeleteMake_Click(object sender, EventArgs e)
         {
             Veichles deleteMake = new Veichles(makeID);
             db.deleteMake(deleteMake);
+
+            List<Veichles> listToDisplayMake = db.readMakes();
+
+            listBoxMake.Items.Clear();
+
+            foreach (Veichles veichle in listToDisplayMake)
+            {
+                listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
+            }
         }
 
-        
+        private void buttonShowGraph_Click(object sender, EventArgs e)
+        {
+            chart1.Series["Number of veichles"].Points.Clear();
+            foreach (Places place in listToDisplayChart)
+            {
+                this.chart1.Series["Number of veichles"].Points.AddXY(place.name, place.numOfVeichles);
+            }
+
+            chart1.Show();
+        }
+
+        private void buttonHideChart_Click(object sender, EventArgs e)
+        {
+            
+            chart1.Hide();
+        }
     }
 
     public static class MyStringExtensions

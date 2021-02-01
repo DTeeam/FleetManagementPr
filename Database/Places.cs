@@ -9,6 +9,8 @@ namespace Database
         public int id { get; set; }
         public string name { get; set; }
         public string postalNum { get; set; }
+        public int numOfVeichles { get; set; }
+
         public Places(string name, string postNum)
         {
             this.name = name;
@@ -18,6 +20,11 @@ namespace Database
         public Places(string name)
         {
             this.name = name;
+        }
+        public Places(string name, int veichleNum)
+        {
+            this.name = name;
+            this.numOfVeichles = veichleNum;
         }
 
         public Places(int id, string name, string postalNum)

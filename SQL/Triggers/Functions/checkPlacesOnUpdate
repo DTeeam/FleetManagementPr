@@ -6,7 +6,7 @@ BEGIN
 	INSERT INTO krajiLog (name, postalNum)
     VALUES (OLD.ime, OLD.posta);
 	
-	RETURN OLD;
+	RETURN NEW;
 
 END;
 $$ LANGUAGE 'plpgsql'

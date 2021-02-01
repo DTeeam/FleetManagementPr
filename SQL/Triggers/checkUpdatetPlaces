@@ -1,0 +1,4 @@
+CREATE TRIGGER checkUpdatetPlaces
+	BEFORE DELETE ON kraji
+	FOR each row
+	EXECUTE PROCEDURE checkPlacesOnUpdate();

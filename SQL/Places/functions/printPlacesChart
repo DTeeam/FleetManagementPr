@@ -1,0 +1,12 @@
+CREATE OR REPLACE FUNCTION printPlacesChart()
+RETURNS table(kraji_ime varchar, vozila_st int) AS $$
+DECLARE
+BEGIN
+
+	RETURN QUERY
+	SELECT k.ime, COUNT(v.*)
+	FROM kraji k INNER JOIN vozila v on k.id = v.kraj_id
+	GROUP BY k.ime;
+	
+END;
+$$ LANGUAGE 'plpgsql';

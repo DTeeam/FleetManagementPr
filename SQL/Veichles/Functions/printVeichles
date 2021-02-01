@@ -1,0 +1,15 @@
+CREATE OR REPLACE FUNCTION printVeichles()
+RETURNS table(vozila_id int, vozila_tip varchar, vozila_letnik int, modeli_ime varchar, znamke_ime varchar, kraji_ime varchar) AS $$
+DECLARE
+BEGIN
+
+	RETURN QUERY
+	SELECT v.id, v.tip, v.letnik, m.ime, z.ime, k.ime
+	FROM vozila v
+	INNER JOIN modeli m ON m.id = v.model_id
+	INNER JOIN znamke z ON z.id = m.znamka_id
+	INNER JOIN kraji k ON k.id = v.kraj_id
+	ORDER BY v.id;
+	
+END;
+$$ LANGUAGE 'plpgsql';

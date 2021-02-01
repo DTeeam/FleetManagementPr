@@ -1,0 +1,11 @@
+CREATE OR REPLACE FUNCTION updateModel(modeli_id int, modeli_ime varchar)
+RETURNS VOID AS $$
+DECLARE
+BEGIN
+
+	UPDATE modeli
+	SET ime = modeli_ime
+	WHERE id = modeli_id;
+	
+END;
+$$ LANGUAGE 'plpgsql';

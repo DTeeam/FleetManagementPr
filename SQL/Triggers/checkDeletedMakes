@@ -1,0 +1,4 @@
+CREATE TRIGGER checkDeletedMakes
+	BEFORE DELETE ON znamke
+	FOR each row
+	EXECUTE PROCEDURE checkmakesOnDelete();

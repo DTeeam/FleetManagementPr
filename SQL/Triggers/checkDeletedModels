@@ -1,0 +1,4 @@
+CREATE TRIGGER checkDeletedModels
+	BEFORE DELETE ON modeli
+	FOR each row
+	EXECUTE PROCEDURE checkmodelsOnDelete();

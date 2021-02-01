@@ -1,0 +1,12 @@
+CREATE FUNCTION checkmodelsOnDelete()
+RETURNS TRIGGER as $$
+
+BEGIN
+	
+	INSERT INTO modeliLog (num, name)
+    VALUES (OLD.id, OLD.ime);
+	
+	RETURN OLD;
+
+END;
+$$ LANGUAGE 'plpgsql'

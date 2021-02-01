@@ -1,0 +1,12 @@
+CREATE OR REPLACE FUNCTION printMakes()
+RETURNS table(znamke_id int, znamke_ime varchar) AS $$
+DECLARE
+BEGIN
+
+	RETURN QUERY
+	SELECT id, ime
+	FROM znamke
+	ORDER BY id;
+	
+END;
+$$ LANGUAGE 'plpgsql';

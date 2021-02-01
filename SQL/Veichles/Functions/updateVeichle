@@ -1,0 +1,10 @@
+CREATE OR REPLACE FUNCTION updateVeichle(id_user int, type varchar, year int, model_user_id int, place_id int)
+RETURNS VOID AS $$
+BEGIN
+
+	UPDATE vozila
+	SET tip = type, letnik = year, model_id = model_user_id, kraj_id = place_id
+	WHERE id = id_user;
+	
+END;
+$$ LANGUAGE 'plpgsql';

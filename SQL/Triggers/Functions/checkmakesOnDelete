@@ -1,0 +1,12 @@
+CREATE FUNCTION checkmakesOnDelete()
+RETURNS TRIGGER as $$
+
+BEGIN
+	
+	INSERT INTO znamkeLog (num, name)
+    VALUES (OLD.id, OLD.ime);
+	
+	RETURN OLD;
+
+END;
+$$ LANGUAGE 'plpgsql'

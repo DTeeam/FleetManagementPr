@@ -1,0 +1,12 @@
+CREATE FUNCTION checkPlacesOnUpdate()
+RETURNS TRIGGER as $$
+
+BEGIN
+	
+	INSERT INTO krajiLog (name, postalNum)
+    VALUES (OLD.ime, OLD.posta);
+	
+	RETURN NEW;
+
+END;
+$$ LANGUAGE 'plpgsql'

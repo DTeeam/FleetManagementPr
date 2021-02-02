@@ -63,12 +63,8 @@ namespace FleetManagementPr
             //List<Veichles> listToDisplayMake = db.readMakes();
             //List<Veichles> listToDisplayModel = db.readModels();
 
-            comboBoxMake.Items.Clear();
-            comboBoxModel.Items.Clear();
+            makeModelComboBox();
 
-            printListComboModel(listToDisplayMake);
-            printListComboMake(listToDisplayModel);
-            
             listBoxMake.Items.Clear();
             listBoxModel.Items.Clear();
 
@@ -81,6 +77,15 @@ namespace FleetManagementPr
             {
                 listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
+        }
+
+        private void makeModelComboBox()
+        {
+            comboBoxMake.Items.Clear();
+            comboBoxModel.Items.Clear();
+
+            printListComboModel(listToDisplayMake);
+            printListComboMake(listToDisplayModel);
         }
 
         private void buttonToAddPlace_Click(object sender, EventArgs e)
@@ -103,11 +108,14 @@ namespace FleetManagementPr
         {
             List<Places> listToDisplay = db.readPlaces();
             listBox1.Items.Clear();
+            listBoxVeichlePlaces.Items.Clear();
 
             foreach(Places place in listToDisplay)
             {
                 listBox1.Items.Add(place.id + " | " + place.name + " | " + place.postalNum);
+                listBoxVeichlePlaces.Items.Add(place.name);
             }
+
         }
 
         private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -382,7 +390,8 @@ namespace FleetManagementPr
         private void buttonToUpdateMakeList_Click(object sender, EventArgs e)
         {
             List<Veichles> listToDisplayMake = db.readMakes();
-            
+            List<Veichles> listToDisplayModel = db.readModels();
+
             listBoxMake.Items.Clear();
             
             foreach (Veichles veichle in listToDisplayMake)
@@ -390,10 +399,16 @@ namespace FleetManagementPr
                 listBoxMake.Items.Add(veichle.makeID + " | " + veichle.model);
             }
 
+            comboBoxMake.Items.Clear();
+            comboBoxModel.Items.Clear();
+
+            printListComboModel(listToDisplayMake);
+            printListComboMake(listToDisplayModel);
         }
 
         private void buttonToUpdateModelList_Click(object sender, EventArgs e)
         {
+            List<Veichles> listToDisplayMake = db.readMakes();
             List<Veichles> listToDisplayModel = db.readModels();
 
             listBoxModel.Items.Clear();
@@ -402,6 +417,12 @@ namespace FleetManagementPr
             {
                 listBoxModel.Items.Add(veichle.makeID + " | " + veichle.model);
             }
+
+            comboBoxMake.Items.Clear();
+            comboBoxModel.Items.Clear();
+
+            printListComboModel(listToDisplayMake);
+            printListComboMake(listToDisplayModel);
         }
 
         private void buttonToAddModel_Click(object sender, EventArgs e)
@@ -462,6 +483,7 @@ namespace FleetManagementPr
 
         private void buttonShowGraph_Click(object sender, EventArgs e)
         {
+            List<Places> listToDisplayChart = db.readForChart();
             chart1.Series["Number of veichles"].Points.Clear();
             foreach (Places place in listToDisplayChart)
             {
